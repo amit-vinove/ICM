@@ -1,33 +1,43 @@
 <div class="login-screen">
     <mat-card class="login-card">
+        <div class="login-card-header">
+            <div class="button-row">
+                <button class="theme-btn">
+                    <img src="../../../assets/icons/sun.png"/>
+                </button>
+                <button  class="flag-btn">
+                        <img src="../../../assets/icons/GB.png"/>
+                </button>
+            </div>
+        </div>
         <mat-card-content>
-            <img class="login-logo" src="../../../assets/images/ICM Logo Default 1.png">
+            <img class="login-logo" src="../../../assets/logo/ICM Logo Default 1.png">
             <div class="login-text-content">
                 <h4>Social Trading</h4>
-                <p>Administration portal.</p>
-                <p>Use your administrator's or staff member's credentials to login.</p>
+                <p>Client portal.</p>
+                <p>Log in, or register as provider or follower.</p>
             </div>
             <div class="login-form">
                 <div class="login-form-content">
                     <div class="input-div">
-                        <label >
+                        <label>
                             Username
                         </label>
-                        <input type="text"/>
+                        <input type="text" />
                     </div>
                 </div>
                 <div class="login-form-content">
                     <div class="input-div">
-                        <label >
+                        <label>
                             Password
                         </label>
-                        <input type="password"/>
+                        <input type="password" />
                     </div>
                 </div>
             </div>
             <div class="login-form-actions">
                 <div class="remember-me">
-                    <input type="checkbox"/>
+                    <input type="checkbox" />
                     <p>Remember for 30 days</p>
                 </div>
                 <div class="forgot-password">
@@ -37,16 +47,22 @@
             <div class="login-form-button">
                 <button mat-flat-button>Log in</button>
             </div>
+            <div class="login-form-actions">
+                <div class="register">
+                    <p>Register as a provider</p>
+                </div>
+                <div class="register">
+                    <p>Register as a follower</p>
+                </div>
+            </div>
             <div class="login-form-footer">
                 <p>
-                    To register an ICM Account. <span> Click here! </span>
+                    To register an ICM Account. <span style="cursor: pointer;"> Click here! </span>
                 </p>
                 <p>
-                    If you already have existing ICM Account.  <span> Click here! </span>
+                    If you already have existing ICM Account. <span style="cursor: pointer;"> Click here! </span>
                 </p>
             </div>
         </mat-card-content>
     </mat-card>
 </div>
-  
- 
