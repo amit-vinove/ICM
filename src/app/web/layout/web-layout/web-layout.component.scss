@@ -1,0 +1,10 @@
+.web-layout{
+    display: flex;
+    width: 100%;
+    .sidenav{
+        width: 20%;
+    }
+    .pages{
+        width: 80%;
+    }
+}
