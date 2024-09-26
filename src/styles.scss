@@ -11,3 +11,16 @@ body { margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     background-color: var(--primaryBlue);
 }
+
+h5{
+  margin: unset !important;
+}
+
+.section-card{
+  background: white;
+  display: flex;
+  width: 96%;
+  border-radius: 6px;
+  padding: 20px;
+  margin-block:10px
+}
