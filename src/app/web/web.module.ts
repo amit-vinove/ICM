@@ -7,6 +7,7 @@ import { AccountComponent } from './views/account/account.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     CommonModule,
     MatSidenavModule,
     WebRoutingModule,
+    AgGridModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   

@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+/* Core Data Grid CSS */
+@import 'ag-grid-community/styles/ag-grid.css';
+/* Quartz Theme Specific CSS */
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 :root {
     --primaryBlue: #094B82; 
@@ -12,7 +15,42 @@ body { margin: 0;
     background-color: var(--primaryBlue);
 }
 
+.d-flex{
+  display: flex;
+}
+.justify-center{
+  justify-content: center;
+}
+.justify-space-between{
+  justify-content: space-between;
+}
+.align-center{
+  align-items: center;
+}
+
+.g-10{
+  gap: 10px;
+}
+.g-20{
+  gap: 20px;
+}
+
+h1{
+  margin: unset !important;
+}
+h3{
+  margin: unset !important;
+}
+h4{
+  margin: unset !important;
+}
 h5{
+  margin: unset !important;
+}
+h6{
+  margin: unset !important;
+}
+p{
   margin: unset !important;
 }
 
@@ -22,5 +60,22 @@ h5{
   width: 96%;
   border-radius: 6px;
   padding: 20px;
-  margin-block:10px
+  margin-block:10px;
+}
+.section-card-content{
+  width: 100%;
+}
+
+.primary-btn{
+  background: var(--primaryBlue);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 18px;
+  border: unset;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
 }

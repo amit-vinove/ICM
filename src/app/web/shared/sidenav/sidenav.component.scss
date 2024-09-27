@@ -52,6 +52,9 @@
                 margin: unset ;
                 list-style: none ;
                 padding: unset ;
+                a{
+                    text-decoration: none;
+                }
                 li{
                     display: flex;
                     align-items: center;
@@ -66,15 +69,14 @@
                         color: #F2F4F7;
                     }
                 }
-                .menu-active{
-                    background: #5A79A9;
-                    border-radius: 6px;
-                }
             }
             .menu-list-bottom{
                 margin: unset ;
                 list-style: none ;
                 padding: unset ;
+                a{
+                    text-decoration: none;
+                }
                 li{
                     display: flex;
                     align-items: center;
@@ -110,11 +112,12 @@
                         cursor: pointer;
                     }
                 }
-                .menu-active{
-                    background: #5A79A9;
-                    border-radius: 6px;
-                }
             }
         }
     }
+}
+
+.menu-active{
+    background: #5A79A9;
+    border-radius: 6px;
 }

@@ -1,53 +1,61 @@
 <div class="sidenav-parent">
     <div class="sidenav-logo">
-        <img src="../../../../assets/logo/ICM Logo White 1.png"/>
+        <img src="../../../../assets/logo/ICM Logo White 1.png" />
     </div>
     <div class="sidenav-menu">
         <div class="search-bar">
-            <img src="../../../../assets/icons/searchIcon.png"/>
-            <input type="text" placeholder="Search"/>
+            <img src="../../../../assets/icons/searchIcon.png" />
+            <input type="text" placeholder="Search" />
         </div>
         <div class="sidebar-menu-items">
             <ul class="menu-list-top">
-                <li>
-                    <img src="../../../../assets/icons/Home Icon.png"/>
-                    <p>Home</p>
-                </li>
-                <li class="menu-active">
-                    <img src="../../../../assets/icons/Portfolio Icon.png"/>
-                    <p>My Providers</p>
-                </li>
-                <li>
-                    <img src="../../../../assets/icons/User Icon.png"/>
-                    <p> My Accounts</p>
-                   
-                </li>
-                <li>
-                    <img src="../../../../assets/icons/Transaction Icon.png"/>
-                    <p> Transaction History</p>
-                </li>
+                <a [routerLink]="'/home'">
+                    <li routerLinkActive="menu-active">
+                        <img src="../../../../assets/icons/Home Icon.png" />
+                        <p>Home</p>
+                    </li>
+                </a>
+                <a [routerLink]="'/providers'" >
+                    <li routerLinkActive="menu-active">
+                        <img src="../../../../assets/icons/Portfolio Icon.png" />
+                        <p>My Providers</p>
+                    </li>
+                </a>
+                <a [routerLink]="'/account'" routerLinkActive="menu-active">
+                    <li routerLinkActive="menu-active">
+                        <img src="../../../../assets/icons/User Icon.png" />
+                        <p> My Accounts</p>
+
+                    </li>
+                </a>
+                <a [routerLink]="'/transactions'" routerLinkActive="menu-active">
+                    <li routerLinkActive="menu-active">
+                        <img src="../../../../assets/icons/Transaction Icon.png" />
+                        <p> Transaction History</p>
+                    </li>
+                </a>
             </ul>
             <ul class="menu-list-bottom">
                 <li>
-                    <img src="../../../../assets/icons/sun-Icon-white.png"/>
+                    <img src="../../../../assets/icons/sun-Icon-white.png" />
                     <p>Dark/Light Mode</p>
                 </li>
                 <li>
-                    <img src="../../../../assets/icons/GB.png"/>
+                    <img src="../../../../assets/icons/GB.png" />
                     <p>Language</p>
                 </li>
                 <li>
-                    <img src="../../../../assets/icons/settingsIcon.png"/>
+                    <img src="../../../../assets/icons/settingsIcon.png" />
                     <p>Settings</p>
                 </li>
                 <li class="logout-item">
-                    <img src="../../../../assets/icons/Avatar.png"/>
+                    <img src="../../../../assets/icons/Avatar.png" />
                     <div>
                         <p>Olivia Rhye</p>
                         <span>olivia.untitledui.com</span>
                     </div>
                     <a>
-                        <img src="../../../../assets/icons/logout.png"/>
+                        <img src="../../../../assets/icons/logout.png" />
                     </a>
                 </li>
             </ul>
