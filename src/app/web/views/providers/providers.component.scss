@@ -1,0 +1,17 @@
+.stats-info{
+    display: flex;
+    justify-content: space-between;
+    h5{
+        font-size: 20px;
+    }
+}
+.stats-subline{
+    p{
+        .positive{
+            color: #027A48;
+        }
+        .negative{
+            color: #B42318;
+        }
+    }
+}

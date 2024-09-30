@@ -5,6 +5,7 @@ import { HomeComponent } from './views/home/home.component';
 import { AccountComponent } from './views/account/account.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
+import { ProvidersComponent } from './views/providers/providers.component';
 
 const WEB_ROUTES: Routes = [
   {
@@ -25,6 +26,13 @@ const WEB_ROUTES: Routes = [
                 title: 'Account'
             }
         },
+        {
+          path: 'providers',
+          component: ProvidersComponent,
+          data: {
+              title: 'Providers'
+          }
+      },
       ]
   }
 ];

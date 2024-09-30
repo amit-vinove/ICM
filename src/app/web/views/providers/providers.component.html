@@ -1,0 +1,79 @@
+<mat-card appearance="outlined" class="section-card">
+    <mat-card-content class="section-card-content">
+        <div class="home-card">
+            <div class="header d-flex justify-space-between align-center">
+                <div class="header-title">
+                    <h5>Providers</h5>
+                    <p>List of Providers</p>
+                </div>
+            </div>
+            <div class="stats d-flex justify-space-between align-center g-20">
+                <div class="stats-card">
+                    <h6>Status</h6>
+                    <div class="stats-info">
+                        <h5>Active</h5>
+                        <h5>15</h5>
+                    </div>
+                    <div class="stats-info">
+                        <h5>Inactive</h5>
+                        <h5>03</h5>
+                    </div>
+                    <div class="stats-subline d-flex align-center">
+                        <p class="d-flex align-center g-10"> <span class="d-flex align-center positive"><img src="../../../../assets/icons/arrow-up.png"/> 100%</span>  vs last month</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h6>Popular Providers</h6>
+                    <h3>15</h3>
+                    <div class="stats-subline d-flex align-center">
+                        <p class="d-flex align-center g-10"> <span class="d-flex align-center negative"><img src="../../../../assets/icons/arrow-down.png"/> 100%</span>  vs last month</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h6>Profitable Providers</h6>
+                    <h3>21</h3>
+                    <div class="stats-subline d-flex align-center">
+                        <p class="d-flex align-center g-10"> <span class="d-flex align-center positive"><img src="../../../../assets/icons/arrow-up.png"/> 100%</span>  vs last month</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <h6>Performance Fee</h6>
+                    <div class="stats-info">
+                        <h5>This month</h5>
+                        <h5>$5.00</h5>
+                    </div>
+                    <div class="stats-info">
+                        <h5>Previous month</h5>
+                        <h5>$14.00</h5>
+                    </div>
+                    <div class="stats-subline d-flex align-center">
+                        <p class="d-flex align-center g-10"> <span class="d-flex align-center positive"><img src="../../../../assets/icons/arrow-up.png"/> 100%</span>  vs last month</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-table">
+                <div class="header d-flex justify-space-between align-center">
+                    <div class="header-title">
+                        <h5>Provider Metrics</h5>
+                        <p>Metrics of individual providers</p>
+                    </div>
+                    <div class="header-buttons d-flex justify-space-between align-center g-20">
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/rotate-ccw.png" />
+                            Refresh
+                        </button>
+                        <button class="primary-btn">
+                            <img src="../../../../assets/icons/plusIcon.png" />
+                            Create
+                        </button>
+                    </div>
+                </div>
+                <div class="table">
+                    <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                        [columnDefs]="colDefs"></ag-grid-angular>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
