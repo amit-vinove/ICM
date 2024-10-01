@@ -138,7 +138,30 @@ box-shadow: 0px 1px 3px 0px #1018281A;
   margin-block:40px;
   .table{
       margin-block:20px;
+      box-shadow: 0px 1px 3px 0px #1018281A;
+      border-radius: 8px;
   }
 }
+
+.ag-theme-alpine{
+  --ag-header-column-resize-handle-display:none !important;
+  --ag-header-background-color :var(--primaryWhite);
+  --ag-background-color:#F9FAFB;
+  --ag-odd-row-background-color:#F9FAFB;
+  --ag-border-radius:8px;
+  --ag-border-color:#EAECF0;
+  --ag-card-shadow:0px 1px 2px 0px #1018280F;
+  --ag-row-height : 60px;
+  --ag-header-foreground-color:#667085;
+}
+.ag-theme-alpine .ag-header-row {
+  font-weight: 500;
+  font-size: 15px;
+}
+.ag-theme-alpine .ag-row{
+  font-size: 15px;
+}
+
+
 
 

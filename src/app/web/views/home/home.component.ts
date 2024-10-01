@@ -24,12 +24,12 @@ export class HomeComponent {
  
   // Column Definitions: Defines the columns to be displayed.
   colDefs: ColDef[] = [
-    { field: "nickname" , headerName:'Nickname' },
-    { field: "fees" , headerName : 'Fees'},
-    { field: "followers" ,headerName:'Followers'},
-    { field: "followerGrowth",headerName:'Follower Growth' },
-    { field: "closedProfit" , headerName:'Closed Profit'},
-    { field: "registered" , headerName:'Registered'},
+    { field: "nickname" , headerName:'Nickname',resizable:false },
+    { field: "fees" , headerName : 'Fees',resizable:false},
+    { field: "followers" ,headerName:'Followers',resizable:false},
+    { field: "followerGrowth",headerName:'Follower Growth',resizable:false },
+    { field: "closedProfit" , headerName:'Closed Profit',resizable:false},
+    { field: "registered" , headerName:'Registered',resizable:false,flex:100},
 
   ];
 
