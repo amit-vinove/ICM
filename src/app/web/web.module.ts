@@ -9,6 +9,7 @@ import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AgGridModule } from 'ag-grid-angular';
 import { ProvidersComponent } from './views/providers/providers.component';
+import { ActionButtonComponent } from './shared/action-button/action-button.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProvidersComponent } from './views/providers/providers.component';
     AccountComponent,
     SidenavComponent,
     ProvidersComponent,
+    ActionButtonComponent,
   ],
   imports: [
     CommonModule,

@@ -8,32 +8,32 @@
                 </div>
                 <div class="header-buttons d-flex justify-space-between align-center g-20">
                     <button class="primary-btn">
-                        <img src="../../../../assets/icons/plusIcon.png"/>
+                        <img src="../../../../assets/icons/plusIcon.png" />
                         New Provider
                     </button>
                     <button class="primary-btn">
-                        <img src="../../../../assets/icons/plusIcon.png"/>
+                        <img src="../../../../assets/icons/plusIcon.png" />
                         New Subscription
                     </button>
                 </div>
             </div>
             <div class="stats d-flex justify-space-between align-center g-20">
-                <div class="stats-card"> 
+                <div class="stats-card">
                     <h6>Monthly Fees</h6>
                     <h3>$ 120.00</h3>
                     <p>September</p>
                 </div>
-                <div class="stats-card"> 
+                <div class="stats-card">
                     <h6>Followers</h6>
                     <h3>10</h3>
                     <p>Active</p>
                 </div>
-                <div class="stats-card"> 
+                <div class="stats-card">
                     <h6>Follower Growth</h6>
                     <h3>0</h3>
                     <p>September</p>
                 </div>
-                <div class="stats-card"> 
+                <div class="stats-card">
                     <h6>Closed profit (own)</h6>
                     <h3>$ 450.00</h3>
                     <p>September</p>
@@ -46,10 +46,11 @@
                     <p>Metrics of individual providers</p>
                 </div>
                 <div class="table">
-                    <ag-grid-angular class="ag-theme-alpine"
-                    style="height: 400px"
-                    [rowData]="rowData"
-                    [columnDefs]="colDefs"></ag-grid-angular>
+                    <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                        [columnDefs]="colDefs" [suppressRowHoverHighlight]="true">
+                    </ag-grid-angular>
+
+
                 </div>
             </div>
         </div>
