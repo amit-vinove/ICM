@@ -1,1 +1,29 @@
-<p>account works!</p>
+<mat-card appearance="outlined" class="section-card">
+    <mat-card-content class="section-card-content">
+        <div class="home-card">
+            <div class="header d-flex justify-space-between align-center">
+                <div class="header-title">
+                    <h5>Accounts</h5>
+                    <p>List of accounts</p>
+                </div>
+            </div>
+            <div class="metrics-table">
+                <div class="header-buttons d-flex justify-space-between">
+                    <button class="secondary-btn">
+                        <img src="../../../../assets/icons/filterIcon.png" />
+                        Filters
+                    </button>
+                    <button class="secondary-btn">
+                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                        Refresh
+                    </button>
+                </div>
+                <div class="table">
+                    <ag-grid-angular class="ag-theme-alpine" style="height: 520px" [rowData]="rowData"
+                        [columnDefs]="colDefs" [suppressRowHoverHighlight]="true">
+                    </ag-grid-angular>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

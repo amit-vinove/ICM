@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
 import { ColDef } from "ag-grid-community";
+import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
 
 @Component({
   selector: 'app-providers',
@@ -22,12 +23,16 @@ export class ProvidersComponent {
 
   // Column Definitions: Defines the columns to be displayed.
   colDefs: ColDef[] = [
-    { field: "nickname" , headerName:'Nickname' },
-    { field: "tradingAccount" , headerName : 'Trading Account'},
-    { field: "strategyMode" ,headerName:'Strategy Mode'},
-    { field: "equity",headerName:'Equity' },
-    { field: "registered" , headerName:'Registered'},
-    
+    { field: "nickname" , headerName:'Nickname',resizable: false , suppressSizeToFit: true },
+    { field: "tradingAccount" , headerName : 'Trading Account',resizable: false},
+    { field: "strategyMode" ,headerName:'Strategy Mode',resizable: false},
+    { field: "equity",headerName:'Equity' ,resizable: false },
+    { field: "registered" , headerName:'Registered',resizable: false,flex:1},
+    {
+      field: "actions",
+      headerName: "",
+      cellRenderer: ActionButtonComponent,flex:1
+    },
   ];
 
 }
