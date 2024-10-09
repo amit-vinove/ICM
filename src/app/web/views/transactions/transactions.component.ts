@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
-import { TypeCellRenderer } from '../../shared/type-cell-renderer/type-cell-renderer.component';
 
 @Component({
-  selector: 'app-account',
-  templateUrl: './account.component.html',
-  styleUrl: './account.component.scss'
+  selector: 'app-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrl: './transactions.component.scss'
 })
-export class AccountComponent {
+export class TransactionsComponent {
+
 
   constructor() {
 
@@ -28,13 +28,7 @@ export class AccountComponent {
   // Define the columns, including the ActionButtonComponent in the last column
   colDefs: ColDef[] = [
     { field: "title", headerName: 'Title', resizable: false , width: 250, suppressSizeToFit: true},
-    // { field: "type", headerName: 'Type', resizable: false , width: 140,maxWidth:140 },
-    {
-      field: 'type',
-      headerName: 'Type',
-      cellRenderer: TypeCellRenderer, headerClass:'type-header',
-      cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'},resizable: false , width: 140,maxWidth:140
-    },
+    { field: "type", headerName: 'Type', resizable: false , width: 140,maxWidth:140 },
     { field: "tradingAccount", headerName: 'Trading Account', resizable: false , width: 200,maxWidth:250 },
     { field: "balance", headerName: 'Balance', resizable: false, width: 150,maxWidth:150  },
     { field: "equity", headerName: 'Equity', resizable: false , width: 150,maxWidth:150 },

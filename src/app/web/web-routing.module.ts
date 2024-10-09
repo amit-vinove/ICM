@@ -6,6 +6,7 @@ import { AccountComponent } from './views/account/account.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { ProvidersComponent } from './views/providers/providers.component';
+import { TransactionsComponent } from './views/transactions/transactions.component';
 
 const WEB_ROUTES: Routes = [
   {
@@ -33,6 +34,13 @@ const WEB_ROUTES: Routes = [
               title: 'Providers'
           }
       },
+      {
+        path: 'transactions',
+        component: TransactionsComponent,
+        data: {
+            title: 'Transactions'
+        }
+    },
       ]
   }
 ];
