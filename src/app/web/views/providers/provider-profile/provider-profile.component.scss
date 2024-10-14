@@ -1,0 +1,50 @@
+.stats-info{
+    display: flex;
+    justify-content: space-between;
+    h5{
+        font-size: 20px;
+    }
+}
+.stats-subline{
+    p{
+        .positive{
+            color: #027A48;
+        }
+        .negative{
+            color: #B42318;
+        }
+    }
+}
+.info-section{
+    padding-block: 50px;
+    .info-section-left{
+        width: 65%;
+        gap: 20px;
+       .info-section-items{
+        width: 100%;
+        padding: 20px;
+        h4{
+            font-size: 20px;
+            margin: unset;
+        }
+        p{
+            font-size: 16px;
+            color: #667085;
+        }
+        h6{
+            font-size: 18px;
+            margin: unset;
+        }
+        .info-section-btn{
+            margin-block: 20px;
+        }
+       }
+       .info-section-items-card{
+        border: 1px solid #EAECF0;
+        border-radius: 10px;
+       }
+    }
+    .info-section-right{
+        width: 35%;
+    }
+}

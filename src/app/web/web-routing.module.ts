@@ -7,41 +7,49 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { ProvidersComponent } from './views/providers/providers.component';
 import { TransactionsComponent } from './views/transactions/transactions.component';
+import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
 
 const WEB_ROUTES: Routes = [
   {
-      path: '',
-      component:WebLayoutComponent,
-      children: [
-          {
-              path: 'home',
-              component: HomeComponent,
-              data: {
-                  title: 'Home'
-              }
-          },
-          {
-            path: 'account',
-            component: AccountComponent,
-            data: {
-                title: 'Account'
-            }
-        },
-        {
-          path: 'providers',
-          component: ProvidersComponent,
-          data: {
-              title: 'Providers'
-          }
+    path: '',
+    component: WebLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+        data: {
+          title: 'Home'
+        }
+      },
+      {
+        path: 'account',
+        component: AccountComponent,
+        data: {
+          title: 'Account'
+        }
+      },
+      {
+        path: 'providers',
+        component: ProvidersComponent,
+        data: {
+          title: 'Providers'
+        }
+      },
+      {
+        path: 'providers-profile/:providerId',
+        component: ProviderProfileComponent,
+        data: {
+          title: 'Providers'
+        }
       },
       {
         path: 'transactions',
         component: TransactionsComponent,
         data: {
-            title: 'Transactions'
+          title: 'Transactions'
         }
-    },
-      ]
+      },
+    ]
   }
 ];
 

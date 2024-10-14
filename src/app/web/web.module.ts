@@ -12,6 +12,7 @@ import { ProvidersComponent } from './views/providers/providers.component';
 import { ActionButtonComponent } from './shared/action-button/action-button.component';
 import { TransactionsComponent } from './views/transactions/transactions.component';
 import { TypeCellRenderer } from './shared/type-cell-renderer/type-cell-renderer.component';
+import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { TypeCellRenderer } from './shared/type-cell-renderer/type-cell-renderer
     ActionButtonComponent,
     TransactionsComponent,
     TypeCellRenderer,
+    ProviderProfileComponent,
   ],
   imports: [
     CommonModule,
