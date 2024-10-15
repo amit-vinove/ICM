@@ -34,6 +34,9 @@ body { margin: 0;
 .g-20{
   gap: 20px;
 }
+.w-100{
+  width: 100%;
+}
 
 h1{
   margin: unset !important;
@@ -93,6 +96,16 @@ p{
   justify-content: space-between;
   gap: 10px;
   align-items: center;
+}
+.edit-btn{
+  padding: 9px 15px;
+  border: 1px solid #D0D5DD;
+  font-size: 15px;
+  font-weight: 600;
+  color: #344054;
+  background: none;
+  border-radius: 6px;
+  margin-block: 20px;
 }
 
 .header-title{

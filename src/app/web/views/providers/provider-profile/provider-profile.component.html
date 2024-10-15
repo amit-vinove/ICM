@@ -35,27 +35,192 @@
             </div>
 
             <div class="info-section d-flex justify-space-between">
-                <div class="info-section-left d-flex justify-space-between">
-                    <div class="info-section-items">
-                        <h4>Common Information</h4>
-                        <p>Provider's common settings</p>
-                        <button class="secondary-btn info-section-btn">
-                            Edit
-                        </button>
+                <div class="info-section-left">
+                    <div class="d-flex justify-space-between w-100">
+                        <div class="info-section-left-items">
+                            <h4>Common Information</h4>
+                            <p>Provider's common settings</p>
+                            <button class="edit-btn info-section-btn">
+                                Edit
+                            </button>
+                        </div>
+                        <div class="info-section-left-items info-section-left-items-card">
+                            <mat-card appearance="outlined">
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Nickname</h6>
+                                    <p>Amit Test</p>
+                                </div>
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Show account name</h6>
+                                    <p>False</p>
+                                </div>
+                            </mat-card>
+                        </div>
                     </div>
-                    <div class="info-section-items info-section-items-card">
-                        <mat-card appearance="outlined">
-                            <div class="d-flex justify-space-between align-center">
-                                <h6>Nickname</h6> <p>Amit Test</p>
+                    <div class="d-flex justify-space-between w-100">
+                        <div class="info-section-left-items">
+                            <h4>Personal details of account</h4>
+                            <p>Description of trading strategy by its owner</p>
+                            <button class="edit-btn info-section-btn">
+                                Edit
+                            </button>
+                        </div>
+                        <div class="info-section-left-items info-section-left-items-card">
+                            <mat-card appearance="outlined">
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Summary</h6>
+                                    <p>No summary</p>
+                                </div>
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Notes</h6>
+                                    <p>No notes</p>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-space-between w-100">
+                        <div class="info-section-left-items">
+                            <h4>Strategy</h4>
+                            <p>Provider's settings of publishing deals</p>
+                            <button class="edit-btn info-section-btn">
+                                Edit
+                            </button>
+                        </div>
+                        <div class="info-section-left-items info-section-left-items-card">
+                            <mat-card appearance="outlined">
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Hide stops</h6>
+                                    <p>False</p>
+                                </div>
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Strategy mode</h6>
+                                    <p>All</p>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-space-between w-100">
+                        <div class="info-section-left-items">
+                            <h4>Finance</h4>
+                            <p>Provider's finance settings</p>
+                            <button class="edit-btn info-section-btn">
+                                Edit
+                            </button>
+                        </div>
+                        <div class="info-section-left-items info-section-left-items-card">
+                            <mat-card appearance="outlined">
+                                <div class="d-flex justify-space-between align-center">
+                                    <h6>Fee receiver account</h6>
+                                    <p>Test IB</p>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-space-between w-100">
+                        <div class="info-section-left-items">
+                            <h4>Offers</h4>
+                            <p>Sets of subscription conditions</p>
+                        </div>
+                        <div class="info-section-left-items">
+                            <div class="d-flex justify-space-between">
+                                <div>
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Status
+                                    </button>
+                                </div>
+                                <div class="d-flex justify-center g-10">
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Refresh
+                                    </button>
+                                    <button class="primary-btn">
+                                        <img src="../../../../assets/icons/plusIcon.png" />
+                                        Create
+                                    </button>
+                                </div>
                             </div>
-                            <div class="d-flex justify-space-between align-center">
-                                <h6>Show account name</h6> <p>False</p>
-                            </div>
-                        </mat-card>
+                        </div>
                     </div>
                 </div>
                 <div class="info-section-right">
+                    <div class="info-section-right-header">
+                        <h4>Personal Info</h4>
+                        <p>Update your personal details here.</p>
+                    </div>
+                    <hr />
+                    <div class="info-section-right-card">
+                        <mat-card appearance="outlined">
+                            <div class="items">
+                                <div class="header d-flex justify-space-between align-center">
+                                    <h6>Information</h6>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>State</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6 class="status-badge">● Active</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>Registered</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6>5/16/23, 9:43:29 AM</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="items">
+                                <div class="header d-flex justify-space-between align-center">
+                                    <h6>Trading Account</h6>
+                                    <img src="../../../../assets/icons/rightIcon.png" />
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>MT name</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6>Test IB</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>MT login</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6>2009208646</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>State</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6 class="status-badge">● Active</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>Created (UTC)</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6>September 16, 2024 at 6:02:20 AM</h6>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-center items-main">
+                                    <div class="items-left">
+                                        <h6>Updated (UTC)</h6>
+                                    </div>
+                                    <div class="items-right">
+                                        <h6>October 14, 2024 at 1:05:51 PM</h6>
+                                    </div>
+                                </div>
+                            </div>
 
+                        </mat-card>
+                    </div>
                 </div>
             </div>
 
