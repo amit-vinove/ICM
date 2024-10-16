@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-nickname-renderer',
   template: `
-    <a [href]="'/providers-profile/'+params.data.id" class="nickname-link">
+    <a [href]="'/providers-profile/'+params.data.Id" class="nickname-link">
       {{ params.value }}
     </a>
   `,

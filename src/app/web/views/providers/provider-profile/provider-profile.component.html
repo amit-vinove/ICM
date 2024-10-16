@@ -125,10 +125,10 @@
                             <div class="d-flex justify-space-between">
                                 <div>
                                     <button class="secondary-btn">
-                                        <img src="../../../../assets/icons/rotate-ccw.png" />
-                                        Status
+                                        Scope
                                     </button>
                                 </div>
+                                <div><h4 class="divider">|</h4></div>
                                 <div class="d-flex justify-center g-10">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotate-ccw.png" />
@@ -140,6 +140,13 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="table">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 150px" [rowData]="rowData1"
+                                [columnDefs]="colDefs1" [suppressRowHoverHighlight]="true">
+                            </ag-grid-angular>
                         </div>
                     </div>
                 </div>
@@ -227,8 +234,7 @@
             <div class="metrics-table">
                 <div class="header d-flex justify-space-between align-center">
                     <div class="header-title">
-                        <h5>Provider Metrics</h5>
-                        <p>Metrics of individual providers</p>
+                        <h5>Subscriptions</h5>
                     </div>
                     <div class="header-buttons d-flex justify-space-between align-center g-20">
                         <button class="secondary-btn">
