@@ -129,3 +129,12 @@
         }
     }
 }
+
+::ng-deep .subs-status-header .ag-header-cell-comp-wrapper .ag-header-cell-label{
+    display: flex;
+    justify-content: center;
+  }
+  ::ng-deep .subs-volScaling-header .ag-header-cell-comp-wrapper .ag-header-cell-label{
+    display: flex;
+    justify-content: center;
+  }

@@ -14,6 +14,7 @@ import { TransactionsComponent } from './views/transactions/transactions.compone
 import { TypeCellRenderer } from './shared/type-cell-renderer/type-cell-renderer.component';
 import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
 import { NicknameRendererComponent } from './views/providers/cellRenderers/nickname-renderer/nickname-renderer.component';
+import { StatusBtnRendererComponent } from './shared/status-btn-renderer/status-btn-renderer.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NicknameRendererComponent } from './views/providers/cellRenderers/nickn
     TypeCellRenderer,
     ProviderProfileComponent,
     NicknameRendererComponent,
+    StatusBtnRendererComponent,
   ],
   imports: [
     CommonModule,

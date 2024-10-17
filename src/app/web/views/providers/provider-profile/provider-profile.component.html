@@ -144,8 +144,8 @@
                     </div>
                     <div>
                         <div class="table">
-                            <ag-grid-angular class="ag-theme-alpine" style="height: 150px" [rowData]="rowData1"
-                                [columnDefs]="colDefs1" [suppressRowHoverHighlight]="true">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 150px" [rowData]="OffersRows"
+                                [columnDefs]="OffersCols" [suppressRowHoverHighlight]="true">
                             </ag-grid-angular>
                         </div>
                     </div>
@@ -232,24 +232,24 @@
             </div>
 
             <div class="metrics-table">
-                <div class="header d-flex justify-space-between align-center">
+                <div class="header d-flex justify-space-between align-center pb-20">
                     <div class="header-title">
                         <h5>Subscriptions</h5>
                     </div>
-                    <div class="header-buttons d-flex justify-space-between align-center g-20">
-                        <button class="secondary-btn">
-                            <img src="../../../../assets/icons/rotate-ccw.png" />
-                            Refresh
-                        </button>
-                        <button class="primary-btn">
-                            <img src="../../../../assets/icons/plusIcon.png" />
-                            Create
-                        </button>
-                    </div>
+                </div>
+                <div class="header-buttons d-flex justify-space-between">
+                    <button class="secondary-btn">
+                        <img src="../../../../assets/icons/filterIcon.png" />
+                        Filters
+                    </button>
+                    <button class="secondary-btn">
+                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                        Refresh
+                    </button>
                 </div>
                 <div class="table">
-                    <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
-                        [columnDefs]="colDefs" [suppressRowHoverHighlight]="true">
+                    <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="SubsRows"
+                        [columnDefs]="SubsCols" [suppressRowHoverHighlight]="true">
                     </ag-grid-angular>
                 </div>
             </div>
