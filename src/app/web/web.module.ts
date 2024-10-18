@@ -15,6 +15,11 @@ import { TypeCellRenderer } from './shared/type-cell-renderer/type-cell-renderer
 import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
 import { NicknameRendererComponent } from './views/providers/cellRenderers/nickname-renderer/nickname-renderer.component';
 import { StatusBtnRendererComponent } from './shared/status-btn-renderer/status-btn-renderer.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu'
 
 
 @NgModule({
@@ -33,9 +38,10 @@ import { StatusBtnRendererComponent } from './shared/status-btn-renderer/status-
   ],
   imports: [
     CommonModule,
+    MatTabsModule,
     MatSidenavModule,
     WebRoutingModule,
-    AgGridModule
+    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   

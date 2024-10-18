@@ -6,10 +6,14 @@
                     <h5>Amit Test</h5>
                     <p>Provider's profile and sharing settings</p>
                 </div>
-                <button class="primary-btn">
+                <button class="primary-btn action-btn" [matMenuTriggerFor]="actions">
                     <img src="../../../../assets/icons/actions.png" />
                     Actions
                 </button>
+                <mat-menu #actions="matMenu" class="actions-menu">
+                    <button mat-menu-item ><img src="../../../../assets/icons/cameraIcon.png" style="width: 20px;height: 20px;"/>Update Avatar</button>
+                    <button mat-menu-item><img src="../../../../assets/icons/trashIcon.png"  style="width: 20px;height: 20px;"/> Archive</button>
+                </mat-menu>
             </div>
             <div class="stats d-flex justify-space-between align-center g-20">
                 <div class="stats-card">
@@ -40,7 +44,7 @@
                         <div class="info-section-left-items">
                             <h4>Common Information</h4>
                             <p>Provider's common settings</p>
-                            <button class="edit-btn info-section-btn">
+                            <button class="edit-btn info-section-btn" (click)="openCommonInfoDialog()">
                                 Edit
                             </button>
                         </div>
@@ -122,14 +126,21 @@
                             <p>Sets of subscription conditions</p>
                         </div>
                         <div class="info-section-left-items">
-                            <div class="d-flex justify-space-between">
+                            <div class="d-flex justify-space-between g-10">
                                 <div>
-                                    <button class="secondary-btn">
+                                    <!-- <button class="secondary-btn">
                                         Scope
-                                    </button>
+                                    </button> -->
+                                    <mat-form-field class="subs-scopeSelect">
+                                        <mat-label>Scope</mat-label>
+                                        <mat-select>
+                                          <mat-option value="active">Active</mat-option>
+                                          <mat-option value="all">All</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
                                 </div>
                                 <div><h4 class="divider">|</h4></div>
-                                <div class="d-flex justify-center g-10">
+                                <div class="d-flex justify-center g-10 align-baseline">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotate-ccw.png" />
                                         Refresh
@@ -232,26 +243,83 @@
             </div>
 
             <div class="metrics-table">
-                <div class="header d-flex justify-space-between align-center pb-20">
+
+                <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
+                    <mat-tab label="Subscriptions">
+                        <div class="header-buttons d-flex justify-space-between pb-20">
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/filterIcon.png" />
+                                Filters
+                            </button>
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/rotate-ccw.png" />
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="table">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="SubsRows"
+                                [columnDefs]="SubsCols" [suppressRowHoverHighlight]="true">
+                            </ag-grid-angular>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Positions">
+                        <div class="header-buttons d-flex justify-space-between pb-20">
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/filterIcon.png" />
+                                Filters
+                            </button>
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/rotate-ccw.png" />
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="table">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="PositionsRows"
+                                [columnDefs]="PositionsCols" [suppressRowHoverHighlight]="true">
+                            </ag-grid-angular>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Deals">
+                        <div class="header-buttons d-flex justify-space-between pb-20">
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/filterIcon.png" />
+                                Filters
+                            </button>
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/rotate-ccw.png" />
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="table">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="DealsRows"
+                                [columnDefs]="DealsCols" [suppressRowHoverHighlight]="true">
+                            </ag-grid-angular>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Fees">
+                        <div class="header-buttons d-flex justify-space-between pb-20">
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/filterIcon.png" />
+                                Filters
+                            </button>
+                            <button class="secondary-btn">
+                                <img src="../../../../assets/icons/rotate-ccw.png" />
+                                Refresh
+                            </button>
+                        </div>
+                        <div class="table">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="FeesRows"
+                                [columnDefs]="FeesCols" [suppressRowHoverHighlight]="true">
+                            </ag-grid-angular>
+                        </div>
+                    </mat-tab>
+                  </mat-tab-group>
+
+                <!-- <div class="header d-flex justify-space-between align-center pb-20">
                     <div class="header-title">
                         <h5>Subscriptions</h5>
                     </div>
-                </div>
-                <div class="header-buttons d-flex justify-space-between">
-                    <button class="secondary-btn">
-                        <img src="../../../../assets/icons/filterIcon.png" />
-                        Filters
-                    </button>
-                    <button class="secondary-btn">
-                        <img src="../../../../assets/icons/rotate-ccw.png" />
-                        Refresh
-                    </button>
-                </div>
-                <div class="table">
-                    <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="SubsRows"
-                        [columnDefs]="SubsCols" [suppressRowHoverHighlight]="true">
-                    </ag-grid-angular>
-                </div>
+                </div> -->
             </div>
         </div>
     </mat-card-content>
