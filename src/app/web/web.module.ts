@@ -19,7 +19,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatMenuModule} from '@angular/material/menu'
+import {MatMenuModule} from '@angular/material/menu';
+import { SubscriptionsComponent } from './views/subscriptions/subscriptions.component';
+import { SubsProfileRendererComponent } from './views/providers/cellRenderers/subs-profile-renderer/subs-profile-renderer.component';
+import { OffersComponent } from './views/offers/offers.component';
+import { OffersRendererComponent } from './views/providers/cellRenderers/offers-renderer/offers-renderer.component'
 
 
 @NgModule({
@@ -35,6 +39,10 @@ import {MatMenuModule} from '@angular/material/menu'
     ProviderProfileComponent,
     NicknameRendererComponent,
     StatusBtnRendererComponent,
+    SubscriptionsComponent,
+    SubsProfileRendererComponent,
+    OffersComponent,
+    OffersRendererComponent,
   ],
   imports: [
     CommonModule,

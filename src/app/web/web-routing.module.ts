@@ -8,6 +8,8 @@ import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { ProvidersComponent } from './views/providers/providers.component';
 import { TransactionsComponent } from './views/transactions/transactions.component';
 import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
+import { SubscriptionsComponent } from './views/subscriptions/subscriptions.component';
+import { OffersComponent } from './views/offers/offers.component';
 
 const WEB_ROUTES: Routes = [
   {
@@ -47,6 +49,20 @@ const WEB_ROUTES: Routes = [
         component: TransactionsComponent,
         data: {
           title: 'Transactions'
+        }
+      },
+      {
+        path: 'subscriptions/:profileId',
+        component: SubscriptionsComponent,
+        data: {
+          title: 'Subscriptions'
+        }
+      },
+      {
+        path: 'offers/:offerId',
+        component: OffersComponent,
+        data: {
+          title: 'Offers'
         }
       },
     ]

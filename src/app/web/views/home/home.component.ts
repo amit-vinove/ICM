@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
+import { NicknameRendererComponent } from '../providers/cellRenderers/nickname-renderer/nickname-renderer.component';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent {
 
   // Define the columns, including the ActionButtonComponent in the last column
   colDefs: ColDef[] = [
-    { field: "nickname", headerName: 'Nickname', resizable: false , width: 250, suppressSizeToFit: true},
+    { field: "nickname", headerName: 'Nickname', resizable: false , width: 250, suppressSizeToFit: true,cellRenderer: NicknameRendererComponent},
     { field: "fees", headerName: 'Fees', resizable: false , width: 140,maxWidth:140 },
     { field: "followers", headerName: 'Followers', resizable: false , width: 150,maxWidth:150 },
     { field: "followerGrowth", headerName: 'Follower Growth', resizable: false, width: 170,maxWidth:170  },

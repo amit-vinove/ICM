@@ -1,39 +1,43 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
 import { ColDef } from "ag-grid-community";
-import { ActionButtonComponent } from '../../../shared/action-button/action-button.component';
-import { TypeCellRenderer } from '../../../shared/type-cell-renderer/type-cell-renderer.component';
-import { StatusBtnRendererComponent } from '../../../shared/status-btn-renderer/status-btn-renderer.component';
+import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
+import { TypeCellRenderer } from '../../shared/type-cell-renderer/type-cell-renderer.component';
+import { StatusBtnRendererComponent } from '../../shared/status-btn-renderer/status-btn-renderer.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { SubsProfileRendererComponent } from '../cellRenderers/subs-profile-renderer/subs-profile-renderer.component';
-import { OffersRendererComponent } from '../cellRenderers/offers-renderer/offers-renderer.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-provider-profile',
-  templateUrl: './provider-profile.component.html',
-  styleUrl: './provider-profile.component.scss'
+  selector: 'app-subscriptions',
+  templateUrl: './subscriptions.component.html',
+  styleUrl: './subscriptions.component.scss'
 })
-export class ProviderProfileComponent {
+export class SubscriptionsComponent {
+  subsId: string | null = null;
+  constructor(private route: ActivatedRoute) {}
 
-  readonly commonInfoDialog = inject(MatDialog);
+  ngOnInit(): void {
+    // Get route parameters (e.g., /sample/:id)
+    this.subsId = this.route.snapshot.paramMap.get('profileId');
+  }
 
 
   SubsRows = [
-    { Id:1, name: "Amit Test", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456789", equity: "$56.7", registered: "9/16/24, 7:02:20 AM"},
-    { Id:2,name: "John Doe", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456712", equity: "$34.5", registered: "9/18/24, 10:12:40 AM" },
-    { Id:3,name: "Alice Smith", status: "Inactive", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456713", equity: "$78.9", registered: "9/20/24, 2:23:18 PM" },
-    { Id:4,name: "Bob Johnson", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456714", equity: "$23.6", registered: "9/21/24, 9:45:50 AM"},
-    { Id:5,name: "Charlie Brown", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456715", equity: "$92.3", registered: "9/23/24, 11:34:12 AM" },
-    { Id:6,name: "Diana Lee", status: "Inactive", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456716", equity: "$67.8", registered: "9/25/24, 5:50:22 PM"},
-    { Id:7,name: "Evan Thomas", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456717", equity: "$48.1", registered: "9/26/24, 8:16:35 AM"}
+    { name: "Amit Test", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456789", equity: "$56.7", registered: "9/16/24, 7:02:20 AM"},
+    { name: "John Doe", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456712", equity: "$34.5", registered: "9/18/24, 10:12:40 AM" },
+    { name: "Alice Smith", status: "Inactive", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456713", equity: "$78.9", registered: "9/20/24, 2:23:18 PM" },
+    { name: "Bob Johnson", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456714", equity: "$23.6", registered: "9/21/24, 9:45:50 AM"},
+    { name: "Charlie Brown", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456715", equity: "$92.3", registered: "9/23/24, 11:34:12 AM" },
+    { name: "Diana Lee", status: "Inactive", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456716", equity: "$67.8", registered: "9/25/24, 5:50:22 PM"},
+    { name: "Evan Thomas", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456717", equity: "$48.1", registered: "9/26/24, 8:16:35 AM"}
   ];
 
   // Column Definitions: Defines the columns to be displayed.
   SubsCols: ColDef[] = [
-    { field: "name" , headerName:'Name',resizable: false , suppressSizeToFit: true ,width:180,cellRenderer:SubsProfileRendererComponent},
+    { field: "name" , headerName:'Name',resizable: false , suppressSizeToFit: true ,width:180},
     { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
     { field: "volumeScaling" ,headerName:'Volume Scaling',resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
     { field: "offer",headerName:'Offer' ,resizable: false ,width:150},
@@ -130,7 +134,7 @@ export class ProviderProfileComponent {
   ]
 
   OffersCols: ColDef[] = [
-    { field: "title" , headerName:'Title',resizable: false ,width: 200,cellRenderer:OffersRendererComponent},
+    { field: "title" , headerName:'Title',resizable: false ,width: 200},
     { field: "visibility" , headerName : 'Visibility',resizable: false,width: 200, cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
     { field: "subscriptions" ,headerName:'Subscriptions',resizable: false,width: 200},
     { field: "joinLinks",headerName:'Join Links' ,resizable: false,width: 150 },
@@ -141,23 +145,4 @@ export class ProviderProfileComponent {
     },
   ];
 
-  openCommonInfoDialog(){
-    const dialogRef = this.commonInfoDialog.open(DialogContentExampleDialog,{
-      panelClass: 'providerProfile-commonInfo'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
 }
-
-@Component({
-  selector: 'commongInfo-dialog',
-  templateUrl: './dialogBoxes/commonInfoDialog.html',
-  standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class DialogContentExampleDialog {}
