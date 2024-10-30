@@ -12,7 +12,6 @@ export class TypeCellRenderer implements ICellRendererAngularComp {
   public valueFormatted: string = '';
 
   agInit(params: ICellRendererParams): void {
-    console.log(params)
     this.value = params.value;
     this.valueFormatted = params.valueFormatted!;
   }

@@ -10,6 +10,8 @@ import { TransactionsComponent } from './views/transactions/transactions.compone
 import { ProviderProfileComponent } from './views/providers/provider-profile/provider-profile.component';
 import { SubscriptionsComponent } from './views/subscriptions/subscriptions.component';
 import { OffersComponent } from './views/offers/offers.component';
+import { ProvidersListComponent } from './views/providers-list/providers-list.component';
+import { ReportsComponent } from './views/reports/reports.component';
 
 const WEB_ROUTES: Routes = [
   {
@@ -19,51 +21,54 @@ const WEB_ROUTES: Routes = [
       {
         path: 'home',
         component: HomeComponent,
-        data: {
-          title: 'Home'
-        }
+        title: "ICM | Home"
+
       },
       {
         path: 'account',
         component: AccountComponent,
-        data: {
-          title: 'Account'
-        }
+        title: "ICM | Account"
+
       },
       {
         path: 'providers',
         component: ProvidersComponent,
-        data: {
-          title: 'Providers'
-        }
+        title: "ICM | Providers"
+
       },
       {
         path: 'providers-profile/:providerId',
         component: ProviderProfileComponent,
-        data: {
-          title: 'Providers'
-        }
+        title: "ICM | Providers"
+
       },
       {
         path: 'transactions',
         component: TransactionsComponent,
-        data: {
-          title: 'Transactions'
-        }
+        title: "ICM | Transactions"
+
       },
       {
         path: 'subscriptions/:profileId',
         component: SubscriptionsComponent,
-        data: {
-          title: 'Subscriptions'
-        }
+        title: "ICM | Subscriptions"
+
       },
       {
         path: 'offers/:offerId',
         component: OffersComponent,
-        data: {
-          title: 'Offers'
-        }
+        title: "ICM | Offers"
+
+      },
+      {
+        path: 'providersList',
+        component: ProvidersListComponent,
+        title: "ICM | Providers List"
+      },
+      {
+        path: 'reports',
+        component: ReportsComponent,
+        title: "ICM | Reports"
       },
     ]
   }

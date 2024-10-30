@@ -1,0 +1,28 @@
+.search-provider-form{
+    min-width: 150px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .search-provider-field{
+    width: 600px;
+  }
+  .search-provider-field .mat-form-field-outline {
+    border-color: #D0D5DD !important; /* Replace #your-color with your desired border color */
+  }
+
+  .divider{
+    font-size: 40px;
+    padding-top: 5px;
+    color: #D0D5DD;
+    font-weight: 100;
+}
+
+  ::ng-deep .providerProfile-tabGroup .mdc-tab__text-label{
+    font-size: 20px !important;
+    font-weight: 400;
+    color: #667085 !important;
+}
+::ng-deep .providerProfile-tabGroup .mdc-tab{
+    padding: 0 50px !important;
+}

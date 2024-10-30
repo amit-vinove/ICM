@@ -7,6 +7,7 @@
     --primaryBlue: #094B82; 
     --primaryWhite:#FFFFFF;
     --mat-select-panel-background-color: white;
+    --mat-autocomplete-background-color: white; /* Replace #f0f0f0 with your desired color */
   }
 
 
@@ -196,6 +197,9 @@ box-shadow: 0px 1px 3px 0px #1018281A;
   background-color: white !important;
 }
 ::ng-deep .mat-mdc-menu-content {
+  background-color: white !important;
+}
+::ng-deep div.mat-mdc-autocomplete-panel {
   background-color: white !important;
 }
 

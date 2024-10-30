@@ -1,0 +1,85 @@
+<mat-card appearance="outlined" class="section-card">
+    <mat-card-content class="section-card-content">
+        <div class="home-card">
+            <div class="header d-flex justify-space-between align-center">
+                <div class="header-title">
+                    <h5>Providers</h5>
+                    <p>List of providers</p>
+                </div>
+                <div class="header-buttons">
+                    <form class="search-provider-form">
+                        <mat-form-field class="search-provider-field" appearance="outline">
+                          <mat-label>Search</mat-label>
+                          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            @for (option of filteredOptions | async; track option) {
+                              <mat-option [value]="option">{{option.name}}</mat-option>
+                            }
+                          </mat-autocomplete>
+                        </mat-form-field>
+                      </form>
+                </div>
+            </div>
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
+                <mat-tab label="Top">
+                    <div class="header-buttons d-flex justify-space-between align-center pb-20">
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/filterIcon.png" />
+                            Filters
+                        </button>
+                        <div class="d-flex justify-space-between g-10">
+                            <div class="d-flex justify-space-between g-10">
+                                <mat-form-field class="offers-keyField" appearance="outline">
+                                    <mat-label>Order By</mat-label>
+                                    <input type="text" matInput placeholder="Key">
+                                  </mat-form-field>
+                                  <mat-form-field class="offers-agentField" appearance="outline">
+                                    <mat-label>Sorting Direction</mat-label>
+                                    <input type="number" matInput placeholder="Agent">
+                                  </mat-form-field>
+                            </div>
+                            <div><h4 class="divider">|</h4></div>
+                            <div class="d-flex justify-center g-10 align-baseline">
+                                <button class="secondary-btn">
+                                    <img src="../../../../assets/icons/rotate-ccw.png" />
+                                    Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table">
+                    </div>
+                </mat-tab>
+                <mat-tab label="Watchlist">
+                    <div class="header-buttons d-flex justify-space-between align-center pb-20">
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/filterIcon.png" />
+                            Filters
+                        </button>
+                        <div class="d-flex justify-space-between g-10">
+                            <div class="d-flex justify-space-between g-10">
+                                <mat-form-field class="offers-keyField" appearance="outline">
+                                    <mat-label>Order By</mat-label>
+                                    <input type="text" matInput placeholder="Key">
+                                  </mat-form-field>
+                                  <mat-form-field class="offers-agentField" appearance="outline">
+                                    <mat-label>Sorting Direction</mat-label>
+                                    <input type="number" matInput placeholder="Agent">
+                                  </mat-form-field>
+                            </div>
+                            <div><h4 class="divider">|</h4></div>
+                            <div class="d-flex justify-center g-10 align-baseline">
+                                <button class="secondary-btn">
+                                    <img src="../../../../assets/icons/rotate-ccw.png" />
+                                    Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table">
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </mat-card-content>
+</mat-card>

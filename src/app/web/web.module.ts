@@ -23,7 +23,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { SubscriptionsComponent } from './views/subscriptions/subscriptions.component';
 import { SubsProfileRendererComponent } from './views/providers/cellRenderers/subs-profile-renderer/subs-profile-renderer.component';
 import { OffersComponent } from './views/offers/offers.component';
-import { OffersRendererComponent } from './views/providers/cellRenderers/offers-renderer/offers-renderer.component'
+import { OffersRendererComponent } from './views/providers/cellRenderers/offers-renderer/offers-renderer.component';
+import { ProvidersListComponent } from './views/providers-list/providers-list.component';
+import { ReportsComponent } from './views/reports/reports.component'
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -43,13 +46,15 @@ import { OffersRendererComponent } from './views/providers/cellRenderers/offers-
     SubsProfileRendererComponent,
     OffersComponent,
     OffersRendererComponent,
+    ProvidersListComponent,
+    ReportsComponent,
   ],
   imports: [
     CommonModule,
     MatTabsModule,
     MatSidenavModule,
     WebRoutingModule,
-    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule
+    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,MatAutocompleteModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   

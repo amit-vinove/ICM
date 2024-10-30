@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-action-button',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./action-button.component.scss']
 })
 export class ActionButtonComponent {
+
+  constructor(private router:Router){
+
+  }
 
   params: any;
 
@@ -15,6 +20,6 @@ export class ActionButtonComponent {
   }
 
   onActionClick() {
-    console.log('Row Data:', this.params.data);
+    this.router.navigate([`/providers-profile/${this.params.data.id}`])
   }
 }
