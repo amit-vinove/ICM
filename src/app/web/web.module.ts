@@ -27,6 +27,7 @@ import { OffersRendererComponent } from './views/providers/cellRenderers/offers-
 import { ProvidersListComponent } from './views/providers-list/providers-list.component';
 import { ReportsComponent } from './views/reports/reports.component'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatTabsModule,
     MatSidenavModule,
     WebRoutingModule,
-    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,MatAutocompleteModule
+    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,MatAutocompleteModule,MatCardModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   
