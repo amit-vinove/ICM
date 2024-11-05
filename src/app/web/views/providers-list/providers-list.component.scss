@@ -18,11 +18,24 @@
     font-weight: 100;
 }
 
-  ::ng-deep .providerProfile-tabGroup .mdc-tab__text-label{
+::ng-deep .providerProfile-tabGroup .mdc-tab__text-label{
     font-size: 20px !important;
     font-weight: 400;
     color: #667085 !important;
 }
 ::ng-deep .providerProfile-tabGroup .mdc-tab{
     padding: 0 50px !important;
+}
+
+.providersList-card{
+  width: 320px;
+  .mat-mdc-card-content{
+    padding: unset !important;
+  }
+  .mat-mdc-card-content:first-child{
+    padding: unset !important;
+  }
+  .mat-mdc-card-content:last-child{
+    padding: unset !important;
+  }
 }
