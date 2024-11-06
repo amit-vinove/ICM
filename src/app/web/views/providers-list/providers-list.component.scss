@@ -29,13 +29,97 @@
 
 .providersList-card{
   width: 320px;
-  .mat-mdc-card-content{
-    padding: unset !important;
+  // .mat-mdc-card-content{
+  //   padding: unset !important;
+  // }
+  // .mat-mdc-card-content:first-child{
+  //   padding: unset !important;
+  // }
+  // .mat-mdc-card-content:last-child{
+  //   padding: unset !important;
+  // }
+  .header{
+    .title{
+      .text{
+        .heading{
+          font-size: 14px;
+          font-weight: 500;
+          color: #101828;
+        }
+        .sub-heading{
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 14px;
+          color: #667085;
+        }
+      }
+    }
   }
-  .mat-mdc-card-content:first-child{
-    padding: unset !important;
+  .main{
+    .main-head{
+      .title{
+        color: #667085;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .value{
+        color: #12B76A;
+      }
+    }
+    .main-content{
+      .text{
+        width: 28%;
+        .title{
+          font-size: 14px;
+          color: #101828;
+        }
+        .subtitle{
+          color: #667085;
+        }
+      }
+    }
   }
-  .mat-mdc-card-content:last-child{
-    padding: unset !important;
+  .footer{
+    border-top: 2px solid #EAECF0;
+    margin-block:20px;
+    .content{
+      margin-top: 20px;
+      .badge{
+        padding: 4px 4px 4px 12px;
+        background-color: #FEF3F2;
+        border-radius: 16px;
+        p{
+          color: #B42318;
+          font-size: 12px;
+        }
+        .badge-count{
+          background-color: #D92D20;
+          padding: 2px 8px;
+          border-radius: 16px;
+          p{
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+          }
+        }
+      }
+      .content-btn{
+        margin-block: unset !important;
+        font-weight: 400;
+      }
+    }
   }
+}
+.provider-icon{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+.saveIcon{
+  height: 20px;
+  width: 20px;
+}
+.countryIcon{
+  height: 30px;
+  width: 30px;
 }

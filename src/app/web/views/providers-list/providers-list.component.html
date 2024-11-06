@@ -9,15 +9,15 @@
                 <div class="header-buttons">
                     <form class="search-provider-form">
                         <mat-form-field class="search-provider-field" appearance="outline">
-                          <mat-label>Search</mat-label>
-                          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                            @for (option of filteredOptions | async; track option) {
-                              <mat-option [value]="option">{{option.name}}</mat-option>
-                            }
-                          </mat-autocomplete>
+                            <mat-label>Search</mat-label>
+                            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                @for (option of filteredOptions | async; track option) {
+                                <mat-option [value]="option">{{option.name}}</mat-option>
+                                }
+                            </mat-autocomplete>
                         </mat-form-field>
-                      </form>
+                    </form>
                 </div>
             </div>
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
@@ -32,13 +32,15 @@
                                 <mat-form-field class="offers-keyField" appearance="outline">
                                     <mat-label>Order By</mat-label>
                                     <input type="text" matInput placeholder="Key">
-                                  </mat-form-field>
-                                  <mat-form-field class="offers-agentField" appearance="outline">
+                                </mat-form-field>
+                                <mat-form-field class="offers-agentField" appearance="outline">
                                     <mat-label>Sorting Direction</mat-label>
                                     <input type="number" matInput placeholder="Agent">
-                                  </mat-form-field>
+                                </mat-form-field>
                             </div>
-                            <div><h4 class="divider">|</h4></div>
+                            <div>
+                                <h4 class="divider">|</h4>
+                            </div>
                             <div class="d-flex justify-center g-10 align-baseline">
                                 <button class="secondary-btn">
                                     <img src="../../../../assets/icons/rotate-ccw.png" />
@@ -49,8 +51,68 @@
                     </div>
                     <div class="providersList">
                         <mat-card appearance="outlined" class="providersList-card">
-                            <mat-card-content>Simple card</mat-card-content>
-                          </mat-card>
+                            <mat-card-content>
+                                <div class="header d-flex align-center justify-space-between">
+                                    <div class="title d-flex align-start g-10">
+                                        <img class="provider-icon" src="../../../../assets/icons/providerIcon.jpeg" />
+                                        <div class="text">
+                                            <p class="heading">Catalog</p>
+                                            <p class="sub-heading">catalogapp.io</p>
+                                        </div>
+                                    </div>
+                                    <div class="info d-flex align-center justify-space-between g-10">
+                                        <img class="countryIcon" src="../../../../assets/icons/southAfricaIcon.svg" />
+                                        <img class="saveIcon" src="../../../../assets/icons/saveIcon.png" />
+                                    </div>
+                                </div>
+                                <div class="main">
+                                    <div class="main-head pb-20 d-flex justify-space-between align-center">
+                                        <p class="title">Return 1M</p>
+                                        <p class="value d-flex align-center"><img class="saveIcon" src="../../../../assets/icons/arrow-up.png" /> 198.42%</p>
+                                    </div>
+                                    <div class="main-content d-flex align-center flex-wrap justify-space-between g-20">
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Fee</p>
+                                            <p class="subtitle">50%</p>
+                                        </div>
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Win Ratio</p>
+                                            <p class="subtitle">5.05</p>
+                                        </div>
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Drawdown</p>
+                                            <p class="subtitle">50%</p>
+                                        </div>
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Investors</p>
+                                            <p class="subtitle">1</p>
+                                        </div>
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Invested</p>
+                                            <p class="subtitle">$500</p>
+                                        </div>
+                                        <div class="text d-flex flex-column">
+                                            <p class="title">Own Funds</p>
+                                            <p class="subtitle">$2,209</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <!-- <hr/> -->
+                                    <div class="content d-flex justify-space-between align-center">
+                                        <div class="badge d-flex justify-space-between g-10">
+                                            <p>Risk</p>
+                                            <div class="badge-count">
+                                                <p>10</p>
+                                            </div>
+                                        </div>
+                                        <button class="edit-btn content-btn">
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
                     </div>
                 </mat-tab>
                 <mat-tab label="Watchlist">
@@ -64,13 +126,15 @@
                                 <mat-form-field class="offers-keyField" appearance="outline">
                                     <mat-label>Order By</mat-label>
                                     <input type="text" matInput placeholder="Key">
-                                  </mat-form-field>
-                                  <mat-form-field class="offers-agentField" appearance="outline">
+                                </mat-form-field>
+                                <mat-form-field class="offers-agentField" appearance="outline">
                                     <mat-label>Sorting Direction</mat-label>
                                     <input type="number" matInput placeholder="Agent">
-                                  </mat-form-field>
+                                </mat-form-field>
                             </div>
-                            <div><h4 class="divider">|</h4></div>
+                            <div>
+                                <h4 class="divider">|</h4>
+                            </div>
                             <div class="d-flex justify-center g-10 align-baseline">
                                 <button class="secondary-btn">
                                     <img src="../../../../assets/icons/rotate-ccw.png" />

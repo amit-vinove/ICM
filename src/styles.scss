@@ -29,11 +29,20 @@ body { margin: 0;
 .align-center{
   align-items: center;
 }
+.align-start{
+  align-items: flex-start;
+}
 .align-baseline{
   align-items: baseline;
 }
 .text-center{
   text-align: center;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .g-10{
