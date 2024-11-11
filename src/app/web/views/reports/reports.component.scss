@@ -1,0 +1,67 @@
+.search-provider-form{
+    min-width: 150px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .search-provider-field{
+    width: 600px;
+  }
+  .search-provider-field .mat-form-field-outline {
+    border-color: #D0D5DD !important; /* Replace #your-color with your desired border color */
+  }
+
+  .divider{
+    font-size: 40px;
+    padding-top: 5px;
+    color: #D0D5DD;
+    font-weight: 100;
+}
+::ng-deep .dateActions-menu .mat-mdc-menu-panel{
+    background-color: white !important;
+  }
+  ::ng-deep .dateActions-menu .mat-mdc-menu-content {
+    background-color: white !important;
+  }
+  ::ng-deep .dateActions-menu .mat-mdc-menu-item{
+    padding-left: 20px;
+    padding-right: 20px;
+    .mat-mdc-menu-item-text{
+        font-size: 17px !important;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+  }
+
+::ng-deep .providerProfile-tabGroup .mdc-tab__text-label{
+    font-size: 20px !important;
+    font-weight: 400;
+    color: #667085 !important;
+}
+::ng-deep .providerProfile-tabGroup .mdc-tab{
+    padding: 0 50px !important;
+}
+::ng-deep .reports-datepicker-filter {
+    .mat-mdc-text-field-wrapper{
+        height: 47px;
+        border: 1px solid black;
+        border-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        line-height: 16px;
+        background-color: white !important;
+        .mdc-line-ripple{
+            display: none !important;
+        }
+    }
+    .mat-mdc-form-field-subscript-wrapper {
+        display: none !important;
+    }
+}
+
+.reports-datepicker-menu{
+border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;}

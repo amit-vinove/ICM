@@ -1,1 +1,208 @@
-<p>reports works!</p>
+<mat-card appearance="outlined" class="section-card">
+    <mat-card-content class="section-card-content">
+        <div class="home-card">
+            <div class="header d-flex justify-space-between align-center">
+                <div class="header-title">
+                    <h5>Reports</h5>
+                    <p>Different kinds of reports</p>
+                </div>
+            </div>
+            <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
+                <mat-tab label="Earnings">
+                    <div class="providers-list">
+                        <div class="header d-flex justify-space-between align-center pb-20">
+                            <div class="header-subtitle">
+                                <h5>Providers Report</h5>
+                                <p>Report on earnings of providers</p>
+                            </div>
+                        </div>
+                        <div class="header-buttons d-flex justify-space-between align-center ">
+                            <div class="d-flex align-center">
+                                <button class="secondary-btn reports-datepicker-menu" [matMenuTriggerFor]="providersDateActions">
+                                  {{providersSelectedDateRange}}
+                                </button>
+                                <mat-menu #providersDateActions="matMenu" class="dateActions-menu">
+                                  <button mat-menu-item (click)="selectProviderDateRange('Last month')">Last month</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">Last 7 days</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Current month')">Current month</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Today')">Today</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Custom')">Custom</button>
+                                </mat-menu>    
+                                <div style="font-size: 12px;">
+                                  <mat-form-field class="reports-datepicker-filter" (click)="providerRangePicker.open()">
+                                    <mat-date-range-input [rangePicker]="providerRangePicker">
+                                      <input matStartDate placeholder="Start date" [value]="providerStartDate" />
+                                      <input matEndDate placeholder="End date" [value]="providersEndDate" />
+                                    </mat-date-range-input>
+                                    <mat-date-range-picker #providerRangePicker></mat-date-range-picker>
+                                  </mat-form-field>
+                                </div>            
+                              </div>
+                              
+                            <div class="d-flex justify-space-between g-10">
+                                <div class="d-flex justify-center g-10 align-baseline">
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Refresh
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-20">
+                            <div class="table">
+                                <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                                    [columnDefs]="providersReportsCol" [suppressRowHoverHighlight]="true">
+                                </ag-grid-angular>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="offers-list">
+                        <div class="header d-flex justify-space-between align-center pb-20">
+                            <div class="header-subtitle">
+                                <h5>Offers Report</h5>
+                                <p>Report on earnings of providers per offer</p>
+                            </div>
+                        </div>
+                        <div class="header-buttons d-flex justify-space-between align-center ">
+                            <div class="d-flex align-center">
+                                <button class="secondary-btn reports-datepicker-menu" [matMenuTriggerFor]="offersDateActions">
+                                  {{ offersSelectedDateRange }}
+                                </button>
+                                <mat-menu #offersDateActions="matMenu" class="dateActions-menu">
+                                  <button mat-menu-item (click)="selectOffersDateRange('Last month')">Last month</button>
+                                  <button mat-menu-item (click)="selectOffersDateRange('Last 7 days')">Last 7 days</button>
+                                  <button mat-menu-item (click)="selectOffersDateRange('Current month')">Current month</button>
+                                  <button mat-menu-item (click)="selectOffersDateRange('Today')">Today</button>
+                                  <button mat-menu-item (click)="selectOffersDateRange('Custom')">Custom</button>
+                                </mat-menu>    
+                                <div style="font-size: 12px;">
+                                  <mat-form-field class="reports-datepicker-filter" (click)="offersRangePicker.open()">
+                                    <mat-date-range-input [rangePicker]="offersRangePicker">
+                                      <input matStartDate placeholder="Start date" [value]="offersStartDate" />
+                                      <input matEndDate placeholder="End date" [value]="offersEndDate" />
+                                    </mat-date-range-input>
+                                    <mat-date-range-picker #offersRangePicker></mat-date-range-picker>
+                                  </mat-form-field>
+                                </div>            
+                              </div>
+                              
+                            <div class="d-flex justify-space-between g-10">
+                                <div class="d-flex justify-center g-10 align-baseline">
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Refresh
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-20">
+                            <div class="table">
+                                <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                                    [columnDefs]="offersReportsCol" [suppressRowHoverHighlight]="true">
+                                </ag-grid-angular>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Fees">
+                    <div class="providers-list">
+                        <div class="header d-flex justify-space-between align-center pb-20">
+                            <div class="header-subtitle">
+                                <h5>Received fees</h5>
+                                <p>The list of fee payments received by your providers during the specified period</p>
+                            </div>
+                        </div>
+                        <div class="header-buttons d-flex justify-space-between align-center ">
+                            <div class="d-flex align-center">
+                                <button class="secondary-btn reports-datepicker-menu" [matMenuTriggerFor]="feeDateActions">
+                                  {{ feesSelectedDateRange }}
+                                </button>
+                                <mat-menu #feeDateActions="matMenu" class="dateActions-menu">
+                                  <button mat-menu-item (click)="selectFeesDateRange('Last month')">Last month</button>
+                                  <button mat-menu-item (click)="selectFeesDateRange('Last 7 days')">Last 7 days</button>
+                                  <button mat-menu-item (click)="selectFeesDateRange('Current month')">Current month</button>
+                                  <button mat-menu-item (click)="selectFeesDateRange('Today')">Today</button>
+                                  <button mat-menu-item (click)="selectFeesDateRange('Custom')">Custom</button>
+                                </mat-menu>    
+                                <div style="font-size: 12px;">
+                                  <mat-form-field class="reports-datepicker-filter" (click)="feesRangePicker.open()">
+                                    <mat-date-range-input [rangePicker]="feesRangePicker">
+                                      <input matStartDate placeholder="Start date" [value]="feesStartDate" />
+                                      <input matEndDate placeholder="End date" [value]="feesEndDate" />
+                                    </mat-date-range-input>
+                                    <mat-date-range-picker #feesRangePicker></mat-date-range-picker>
+                                  </mat-form-field>
+                                </div>            
+                              </div>
+                              
+                            <div class="d-flex justify-space-between g-10">
+                                <div class="d-flex justify-center g-10 align-baseline">
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Refresh
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-20">
+                            <div class="table">
+                                <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                                    [columnDefs]="recivedFeesCol" [suppressRowHoverHighlight]="true">
+                                </ag-grid-angular>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Trading">
+                    <div class="providers-list">
+                        <div class="header d-flex justify-space-between align-center pb-20">
+                            <div class="header-subtitle">
+                                <h5>Published Positions Report</h5>
+                                <p>Report on positions published by providers</p>
+                            </div>
+                        </div>
+                        <div class="header-buttons d-flex justify-space-between align-center ">
+                            <div class="d-flex align-center">
+                                <button class="secondary-btn reports-datepicker-menu" [matMenuTriggerFor]="tradingDateActions">
+                                  {{ tradingSelectedDateRange }}
+                                </button>
+                                <mat-menu #tradingDateActions="matMenu" class="dateActions-menu">
+                                  <button mat-menu-item (click)="selectTradingDateRange('Last month')">Last month</button>
+                                  <button mat-menu-item (click)="selectTradingDateRange('Last 7 days')">Last 7 days</button>
+                                  <button mat-menu-item (click)="selectTradingDateRange('Current month')">Current month</button>
+                                  <button mat-menu-item (click)="selectTradingDateRange('Today')">Today</button>
+                                  <button mat-menu-item (click)="selectTradingDateRange('Custom')">Custom</button>
+                                </mat-menu>    
+                                <div style="font-size: 12px;">
+                                  <mat-form-field class="reports-datepicker-filter" (click)="tradingRangePicker.open()">
+                                    <mat-date-range-input [rangePicker]="tradingRangePicker">
+                                      <input matStartDate placeholder="Start date" [value]="tradingStartDate" />
+                                      <input matEndDate placeholder="End date" [value]="tradingEndDate" />
+                                    </mat-date-range-input>
+                                    <mat-date-range-picker #tradingRangePicker></mat-date-range-picker>
+                                  </mat-form-field>
+                                </div>            
+                              </div>
+                            <div class="d-flex justify-space-between g-10">
+                                <div class="d-flex justify-center g-10 align-baseline">
+                                    <button class="secondary-btn">
+                                        <img src="../../../../assets/icons/rotate-ccw.png" />
+                                        Refresh
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-20">
+                            <div class="table">
+                                <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"
+                                    [columnDefs]="publishedCol" [suppressRowHoverHighlight]="true">
+                                </ag-grid-angular>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </mat-card-content>
+</mat-card>

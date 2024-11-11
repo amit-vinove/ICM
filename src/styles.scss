@@ -8,6 +8,8 @@
     --primaryWhite:#FFFFFF;
     --mat-select-panel-background-color: white;
     --mat-autocomplete-background-color: white; /* Replace #f0f0f0 with your desired color */
+    // --mat-form-field-container-height:45px !important;
+    // --mat-form-field-container-vertical-padding:10px
   }
 
 
@@ -101,7 +103,7 @@ p{
   font-weight: 500;
   font-size: 18px;
   border: unset;
-  padding: 15px 20px;
+  padding: 12px 18px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -116,7 +118,7 @@ p{
   font-weight: 500;
   font-size: 18px;
   border: 1px solid black;
-  padding: 15px 20px;
+  padding: 12px 18px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -142,6 +144,16 @@ p{
   }
   p{
       font-size: 16px;
+      color: #667085;
+  }
+}
+.header-subtitle{
+  h5{
+      font-size: 23px;
+      color:#101828;
+  }
+  p{
+      font-size: 15px;
       color: #667085;
   }
 }

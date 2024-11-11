@@ -27,8 +27,92 @@
     padding: 0 50px !important;
 }
 
+.providersList{
+  display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .providersList-card{
+      width: 340px;
+      border: 1px solid #EAECF0;
+      box-shadow: 0px 1px 3px 0px #1018281A;    
+      .header{
+        .title{
+          .text{
+            .heading{
+              font-size: 14px;
+              font-weight: 500;
+              color: #101828;
+            }
+            .sub-heading{
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 14px;
+              color: #667085;
+            }
+          }
+        }
+      }
+      .main{
+        .main-head{
+          .title{
+            color: #667085;
+            font-weight: 400;
+            font-size: 14px;
+          }
+          .value{
+            color: #12B76A;
+          }
+        }
+        .main-content{
+          .text{
+            width: 28%;
+            .title{
+              font-size: 14px;
+              color: #101828;
+            }
+            .subtitle{
+              color: #667085;
+            }
+          }
+        }
+      }
+      .footer{
+        border-top: 2px solid #EAECF0;
+        margin-block:20px;
+        .content{
+          margin-top: 20px;
+          .badge{
+            padding: 4px 4px 4px 12px;
+            background-color: #FEF3F2;
+            border-radius: 16px;
+            p{
+              color: #B42318;
+              font-size: 12px;
+            }
+            .badge-count{
+              background-color: #D92D20;
+              padding: 2px 8px;
+              border-radius: 16px;
+              p{
+                color: white;
+                font-size: 12px;
+                line-height: 20px;
+              }
+            }
+          }
+          .content-btn{
+            margin-block: unset !important;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+}
 .providersList-card{
   width: 320px;
+  border: 1px solid #EAECF0;
+  box-shadow: 0px 1px 3px 0px #1018281A;
   // .mat-mdc-card-content{
   //   padding: unset !important;
   // }
@@ -38,6 +122,7 @@
   // .mat-mdc-card-content:last-child{
   //   padding: unset !important;
   // }
+
   .header{
     .title{
       .text{

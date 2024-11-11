@@ -28,6 +28,9 @@ import { ProvidersListComponent } from './views/providers-list/providers-list.co
 import { ReportsComponent } from './views/reports/reports.component'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'; 
 
 
 @NgModule({
@@ -55,7 +58,8 @@ import { MatCardModule } from '@angular/material/card';
     MatTabsModule,
     MatSidenavModule,
     WebRoutingModule,
-    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,MatAutocompleteModule,MatCardModule
+    AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,
+    MatAutocompleteModule,MatCardModule,NgApexchartsModule,MatNativeDateModule,MatDatepickerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   
