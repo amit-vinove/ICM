@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     h5{
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 .stats-subline{
@@ -12,6 +12,48 @@
         }
         .negative{
             color: #B42318;
+        }
+    }
+}
+
+.filters{
+    .filter-opts{
+        width: 150px;
+        
+        ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+            display: none !important;
+        }
+    }
+}
+
+::ng-deep .newProvider-dialog{
+    width: 600px !important;
+    border-radius: 10px !important;
+    .mat-mdc-dialog-title{
+        margin: unset !important;
+        padding-bottom: 10px !important;
+    }
+    .mat-mdc-dialog-surface{
+        border-radius: 10px !important;
+        background: white !important;
+        padding: 20px !important;
+    }
+    .commonInfo-Email{
+        width: 100% !important;
+        .mdc-text-field{
+            background-color: white;
+            border: 1px solid;
+            border-bottom: 0px;
+            margin-bottom: -1.25em
+        }
+    }
+    .commonInfo-Scope{
+        width: 100% !important;
+        .mdc-text-field{
+            background-color: white;
+            border: 1px solid;
+            border-bottom: 0px;
+            margin-bottom: -1.25em
         }
     }
 }

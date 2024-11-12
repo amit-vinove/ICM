@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import { ColDef } from 'ag-grid-community';
 import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
 import { NicknameRendererComponent } from '../providers/cellRenderers/nickname-renderer/nickname-renderer.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +13,10 @@ import { NicknameRendererComponent } from '../providers/cellRenderers/nickname-r
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  readonly beProviderDialog = inject(MatDialog);
+  readonly beFollowerDialog = inject(MatDialog);
+
 
   constructor() {
 
@@ -39,5 +47,44 @@ export class HomeComponent {
       cellRenderer: ActionButtonComponent,flex:1
     },
   ];
+  
+  openBeProviderDialog(){
+    const dialogRef = this.beProviderDialog.open(BeProviderDialog,{
+      panelClass: 'beProvider-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openBeFollowerDialog(){
+    const dialogRef = this.beFollowerDialog.open(BeFollowerDialog,{
+      panelClass: 'beFollower-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 }
+
+
+@Component({
+  selector: 'beProvider-dialog',
+  templateUrl: './dialogBox/beProviderDialog.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BeProviderDialog {}
+
+@Component({
+  selector: 'beFollower-dialog',
+  templateUrl: './dialogBox/beFollowerDialog.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BeFollowerDialog {}

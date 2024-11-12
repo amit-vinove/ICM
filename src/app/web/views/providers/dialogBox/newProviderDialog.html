@@ -1,0 +1,27 @@
+<h2 mat-dialog-title class="text-center">New Provider</h2>
+<p class="text-center">Create a new provider</p>
+<mat-dialog-content class="mat-typography">
+    <mat-form-field class="commonInfo-Scope">
+        <mat-label>Trading account</mat-label>
+        <mat-select>
+            <mat-option value="active">Disabled</mat-option>
+            <mat-option value="all">Enabled</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p class="pb-10">One of the added trading accounts
+    </p>
+    <mat-form-field class="commonInfo-Email">
+        <mat-label>Nickname</mat-label>
+        <input type="text" matInput placeholder="Provider 1">
+    </mat-form-field>
+    <p class="pb-10">Provider's name to be displayed for followers
+    </p>
+</mat-dialog-content>
+<div class="d-flex justify-center g-20">
+    <button mat-dialog-close class="secondary-btn">Cancel</button>
+    <button class="primary-btn">Create</button>
+</div>
+<!-- <mat-dialog-actions class="d-flex justify-center g-20">
+  <button mat-dialog-close class="secondary-btn">Cancel</button>
+  <button class="primary-btn">Save Changes</button>
+</mat-dialog-actions> -->

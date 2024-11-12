@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
 import { ColDef } from "ag-grid-community";
 import { ActionButtonComponent } from '../../shared/action-button/action-button.component';
 import { NicknameRendererComponent } from './cellRenderers/nickname-renderer/nickname-renderer.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-providers',
@@ -11,6 +15,7 @@ import { NicknameRendererComponent } from './cellRenderers/nickname-renderer/nic
 })
 export class ProvidersComponent {
 
+  readonly newProviderDialog = inject(MatDialog);
 
   rowData =   [
     { Id:1, nickname: "Amit Test", tradingAccount: "11003456789", strategyMode: 'All', equity: "$56.7", registered: "9/16/24, 7:02:20 AM",actionUrl:"/providers-profile/" },
@@ -36,4 +41,23 @@ export class ProvidersComponent {
     },
   ];
 
+  openNewProviderDialog(){
+    const dialogRef = this.newProviderDialog.open(BeProviderDialog,{
+      panelClass: 'newProvider-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }
+
+@Component({
+  selector: 'newProvider-dialog',
+  templateUrl: './dialogBox/newProviderDialog.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BeProviderDialog {}

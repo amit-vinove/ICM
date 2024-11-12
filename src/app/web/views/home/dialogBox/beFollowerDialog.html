@@ -1,0 +1,73 @@
+<div class="parent-div d-flex justify-space-between">
+    <div class="child-div-left">
+        <h2 mat-dialog-title class="text-center">New Subscription</h2>
+        <p class="text-center">Create a new subscription</p>
+        <mat-dialog-content class="mat-typography">
+            <mat-form-field class="commonInfo-Scope">
+                <mat-label>Trading account</mat-label>
+                <mat-select>
+                    <mat-option value="active">Disabled</mat-option>
+                    <mat-option value="all">Enabled</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p class="pb-10">One of the added trading accounts
+            </p>
+    
+            <mat-form-field class="commonInfo-Email">
+                <mat-label>Provider</mat-label>
+                <input type="text" matInput placeholder="Provider 1">
+            </mat-form-field>
+            <p class="pb-10">A provider to copy trades from
+            </p>
+    
+            <mat-form-field class="commonInfo-Scope">
+                <mat-label>Offer</mat-label>
+                <mat-select>
+                    <mat-option value="active">Disabled</mat-option>
+                    <mat-option value="all">Enabled</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p class="pb-10">Select an offer of the provider
+    
+            </p>
+    
+        </mat-dialog-content>
+        <div class="d-flex justify-center g-20">
+            <button mat-dialog-close class="secondary-btn">Cancel</button>
+            <button class="primary-btn">Create</button>
+        </div>
+    </div>
+    
+    <div class="child-div-right">
+        <h2 mat-dialog-title class="text-center">Details</h2>
+        <p class="text-center">Information about the chosen provider and subscription conditions</p>
+        <mat-dialog-content class="mat-typography">
+            <div class="pb-5">
+                <h6>Provider</h6>
+                <div class="d-flex justify-space-between pb-5">
+                    <p>Nickname</p>
+                    <p>GOLD Day Trade</p>
+                </div>
+                <div class="d-flex justify-space-between pb-5">
+                    <p>Visibility</p>
+                    <p>Public</p>
+                </div>
+            </div>  
+            <div class="pb-5">
+                <h6>Offer</h6>
+                <div class="d-flex justify-space-between pb-5">
+                    <p>Title</p>
+                    <p>Daily Share 30%</p>
+                </div>
+                <div class="d-flex justify-space-between pb-5">
+                    <p>Performance fee</p>
+                    <p>30% (Daily)</p>
+                </div>
+            </div>      
+        </mat-dialog-content>
+    </div>
+</div>
+<!-- <mat-dialog-actions class="d-flex justify-center g-20">
+  <button mat-dialog-close class="secondary-btn">Cancel</button>
+  <button class="primary-btn">Save Changes</button>
+</mat-dialog-actions> -->
