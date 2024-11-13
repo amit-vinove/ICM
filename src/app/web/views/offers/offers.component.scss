@@ -27,7 +27,7 @@
 
         .info-section-left-items {
             width: 100%;
-            padding: 20px;
+            padding: 15px;
             height: fit-content;
             h4 {
                 font-size: 20px;
@@ -53,9 +53,12 @@
         }
 
         .info-section-left-items-card {
-            border: 1px solid #EAECF0;
+            border: 2px solid #EAECF0;
             border-radius: 10px;
             height: fit-content;
+            .mat-mdc-card {
+                border: none !important;
+            }
         }
     }
 
@@ -100,7 +103,7 @@
 
                     .items-left {
                         padding: 8px 20px;
-                        width: 40%;
+                        width: 50%;
                         border: 1px solid #D0D5DD;
                         border-top-left-radius: 6px;
                         border-bottom-left-radius: 6px;
@@ -117,7 +120,7 @@
 
                         .status-badge {
                             background: #ECFDF3;
-                            width: 35%;
+                            width: 50%;
                             padding: 0px 10px;
                             border-radius: 16px;
                             color: #027A48;
@@ -126,6 +129,9 @@
                     }
                 }
             }
+            .mat-mdc-card{
+                border: none !important;
+            } 
         }
     }
 }

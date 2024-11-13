@@ -10,14 +10,61 @@
     --mat-autocomplete-background-color: white; /* Replace #f0f0f0 with your desired color */
     // --mat-form-field-container-height:45px !important;
     // --mat-form-field-container-vertical-padding:10px
+    --border-color:#D0D5DD;
   }
-
 
 html, body { height: 100%; }
 body { margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     background-color: var(--primaryBlue);
 }
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--border-color) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-width: 1.5px !important;
+}
+
+/* Change the border focused color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__trailing {
+  border-color: var(--primaryBlue) !important;
+}
+
+/* Change the border hover color */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover
+  .mdc-notched-outline
+  .mdc-notched-outline__trailing {
+  border-color: var(--primaryBlue) !important;
+}
+
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field .mdc-notched-outline__notch{
+  border-left: none !important;
+}
+
+
 
 .d-flex{
   display: flex;
@@ -120,13 +167,17 @@ p{
   border-radius: 8px;
   font-weight: 500;
   font-size: 18px;
-  border: 1px solid black;
+  border: 1px solid #D0D5DD;
   padding: 12px 18px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s linear, border-radius 0.3s linear, padding 0.3s linear, width 0.3s linear; 
+}
+.secondary-btn:hover{
+  background-color: #e3e3e3;
 }
 .edit-btn{
   padding: 9px 15px;
@@ -137,7 +188,11 @@ p{
   background: none;
   border-radius: 6px;
   margin-block: 20px;
+  transition: background-color 0.3s linear, border-radius 0.3s linear, padding 0.3s linear, width 0.3s linear; 
   cursor: pointer;
+}
+.edit-btn:hover{
+  background-color: #e3e3e3;
 }
 
 .header-title{

@@ -16,6 +16,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 export class ProvidersComponent {
 
   readonly newProviderDialog = inject(MatDialog);
+  public filterEnabled:boolean=false
 
   rowData =   [
     { Id:1, nickname: "Amit Test", tradingAccount: "11003456789", strategyMode: 'All', equity: "$56.7", registered: "9/16/24, 7:02:20 AM",actionUrl:"/providers-profile/" },
@@ -50,6 +51,11 @@ export class ProvidersComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  toggleFilter(){
+    this.filterEnabled = !this.filterEnabled
+  }
+
 
 }
 
