@@ -21,25 +21,16 @@
                 </div>
             </div>
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
-                <mat-tab label="Top">
+                <mat-tab *ngFor="let tab of tabLabels" [label]="tab.label">
                     <div class="header-buttons d-flex justify-space-between align-center pb-20">
-                        <button class="secondary-btn">
-                            <img src="../../../../assets/icons/filterIcon.png" />
-                            Filters
-                        </button>
                         <div class="d-flex justify-space-between g-10">
-                            <div class="d-flex justify-space-between g-10">
-                                <mat-form-field class="offers-keyField" appearance="outline">
-                                    <mat-label>Order By</mat-label>
-                                    <input type="text" matInput placeholder="Key">
-                                </mat-form-field>
-                                <mat-form-field class="offers-agentField" appearance="outline">
-                                    <mat-label>Sorting Direction</mat-label>
-                                    <input type="number" matInput placeholder="Agent">
-                                </mat-form-field>
-                            </div>
-                            <div>
-                                <h4 class="divider">|</h4>
+                            <div class="d-flex justify-space-between providerProfile-tabFilters g-10 align-center">
+                                <h5 class="active"> Any </h5>
+                                <h5> Forex </h5>
+                                <h5> Indices </h5>
+                                <h5> Crypto </h5>
+                                <h5> Algorithmic </h5>
+                                <h5> Commodities </h5>
                             </div>
                             <div class="d-flex justify-center g-10 align-baseline">
                                 <button class="secondary-btn">
@@ -48,6 +39,10 @@
                                 </button>
                             </div>
                         </div>
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/filterIcon.png" />
+                            More Filters
+                        </button>
                     </div>
                     <div class="providersList">
                         <mat-card *ngFor="let card of cards" appearance="outlined" class="providersList-card">
@@ -133,38 +128,8 @@
                         
                     </div>
                 </mat-tab>
-                <mat-tab label="Watchlist">
-                    <div class="header-buttons d-flex justify-space-between align-center pb-20">
-                        <button class="secondary-btn">
-                            <img src="../../../../assets/icons/filterIcon.png" />
-                            Filters
-                        </button>
-                        <div class="d-flex justify-space-between g-10">
-                            <div class="d-flex justify-space-between g-10">
-                                <mat-form-field class="offers-keyField" appearance="outline">
-                                    <mat-label>Order By</mat-label>
-                                    <input type="text" matInput placeholder="Key">
-                                </mat-form-field>
-                                <mat-form-field class="offers-agentField" appearance="outline">
-                                    <mat-label>Sorting Direction</mat-label>
-                                    <input type="number" matInput placeholder="Agent">
-                                </mat-form-field>
-                            </div>
-                            <div>
-                                <h4 class="divider">|</h4>
-                            </div>
-                            <div class="d-flex justify-center g-10 align-baseline">
-                                <button class="secondary-btn">
-                                    <img src="../../../../assets/icons/rotate-ccw.png" />
-                                    Refresh
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table">
-                    </div>
-                </mat-tab>
             </mat-tab-group>
+            
         </div>
     </mat-card-content>
 </mat-card>

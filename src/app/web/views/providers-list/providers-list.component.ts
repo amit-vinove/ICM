@@ -44,6 +44,22 @@ export class ProvidersListComponent {
 
   cards = Array(10).fill(0);
 
+  tabLabels = [
+    { name: 'featured', label: 'Featured' },
+    { name: 'bestPerformers', label: 'Best Performers' },
+    { name: 'cryptoKings', label: 'Crypto Kings' },
+    { name: 'highWinRatio', label: 'High Win Ratio' },
+    { name: 'highOwnFunds', label: 'High Own Funds' },
+    { name: 'lowRisk', label: 'Low Risk' },
+    { name: 'lowDrawdown', label: 'Low Drawdown' },
+    { name: 'lowFees', label: 'Low Fees' },
+    { name: 'mostPopular', label: 'Most Popular' },
+    { name: 'mostInvested', label: 'Most Invested' },
+    { name: 'watchlist', label: 'Watchlist' },
+    { name: 'all', label: 'All' },
+  ];
+
+
 
   constructor(
   ) {
@@ -56,7 +72,7 @@ export class ProvidersListComponent {
       ],
       chart: {
         height: 140,
-        width: '100%',
+        width: 300,
         type: "area",
         toolbar: {
           show: false,
