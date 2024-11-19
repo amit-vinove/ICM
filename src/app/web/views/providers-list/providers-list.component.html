@@ -7,7 +7,7 @@
                     <p>List of providers</p>
                 </div>
                 <div class="header-buttons">
-                    <form class="search-provider-form">
+                    <!-- <form class="search-provider-form">
                         <mat-form-field class="search-provider-field" appearance="outline">
                             <mat-label>Search</mat-label>
                             <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
@@ -17,13 +17,13 @@
                                 }
                             </mat-autocomplete>
                         </mat-form-field>
-                    </form>
+                    </form> -->
                 </div>
             </div>
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
                 <mat-tab *ngFor="let tab of tabLabels" [label]="tab.label">
-                    <div class="header-buttons d-flex justify-space-between align-center pb-20">
-                        <div class="d-flex justify-space-between g-10">
+                    <div class="providersList-header-buttons d-flex justify-space-between align-center pb-20">
+                        <div class="d-flex justify-space-between g-10 align-center">
                             <div class="d-flex justify-space-between providerProfile-tabFilters g-10 align-center">
                                 <h5 class="active"> Any </h5>
                                 <h5> Forex </h5>
@@ -32,15 +32,33 @@
                                 <h5> Algorithmic </h5>
                                 <h5> Commodities </h5>
                             </div>
-                            <div class="d-flex justify-center g-10 align-baseline">
-                                <button class="secondary-btn">
-                                    <img src="../../../../assets/icons/rotate-ccw.png" />
+                            <div class="d-flex justify-center g-10 align-center">
+                                <!-- <button class="secondary-btn">
+                                    <img src="../../../../assets/icons/rotateIcon.svg" />
                                     Refresh
-                                </button>
+                                </button> -->
+                                <!-- <img src="../../../../assets/icons/searchIcon.svg" /> -->
+                                    <mat-form-field class="search-provider-field" appearance="outline">
+                                        <img matPrefix src="../../../../assets/icons/searchIcon.svg" />
+
+                                        <mat-label>Search</mat-label>
+                                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                            @for (option of filteredOptions | async; track option) {
+                                            <mat-option [value]="option">{{option.name}}</mat-option>
+                                            }
+                                        </mat-autocomplete>
+                                    </mat-form-field>
                             </div>
                         </div>
                         <button class="secondary-btn">
-                            <img src="../../../../assets/icons/filterIcon.png" />
+                            <img src="../../../../assets/icons/gridIcon.svg" />
+                        </button>
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/listIcon.svg" />
+                        </button>
+                        <button class="secondary-btn">
+                            <img src="../../../../assets/icons/filterIcon.svg" />
                             More Filters
                         </button>
                     </div>
