@@ -31,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'; 
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSidenavModule,
     WebRoutingModule,
     AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,
-    MatAutocompleteModule,MatCardModule,NgApexchartsModule,MatNativeDateModule,MatDatepickerModule
+    MatAutocompleteModule,MatCardModule,NgApexchartsModule,MatNativeDateModule,MatDatepickerModule,MatIconModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   

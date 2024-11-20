@@ -39,8 +39,7 @@
                                 </button> -->
                                 <!-- <img src="../../../../assets/icons/searchIcon.svg" /> -->
                                     <mat-form-field class="search-provider-field" appearance="outline">
-                                        <img matPrefix src="../../../../assets/icons/searchIcon.svg" />
-
+                                        <mat-icon color="secondary" matPrefix>search</mat-icon>
                                         <mat-label>Search</mat-label>
                                         <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
                                         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
@@ -51,10 +50,10 @@
                                     </mat-form-field>
                             </div>
                         </div>
-                        <button class="secondary-btn">
+                        <button class="secondary-btn switchMode-btn" [ngClass]="viewMode =='cards' ? 'secondary-btn-active':''" (click)="switchMode('cards')">
                             <img src="../../../../assets/icons/gridIcon.svg" />
                         </button>
-                        <button class="secondary-btn">
+                        <button class="secondary-btn switchMode-btn" [ngClass]="viewMode =='table' ? 'secondary-btn-active':''" (click)="switchMode('table')">
                             <img src="../../../../assets/icons/listIcon.svg" />
                         </button>
                         <button class="secondary-btn">
@@ -62,88 +61,94 @@
                             More Filters
                         </button>
                     </div>
-                    <div class="providersList">
-                        <mat-card *ngFor="let card of cards" appearance="outlined" class="providersList-card">
-                            <mat-card-content>
-                                <div class="header d-flex align-center justify-space-between">
-                                    <div class="title d-flex align-start g-10">
-                                        <img class="provider-icon" src="../../../../assets/icons/providerIcon.jpeg" />
-                                        <div class="text">
-                                            <p class="heading">Catalog</p>
-                                            <p class="sub-heading">catalogapp.io</p>
-                                        </div>
-                                    </div>
-                                    <div class="info d-flex align-center justify-space-between g-10">
-                                        <img class="countryIcon" src="../../../../assets/icons/southAfricaIcon.svg" />
-                                        <img class="saveIcon" src="../../../../assets/icons/saveIcon.png" />
-                                    </div>
-                                </div>
-                                <div class="main">
-                                    <div class="main-head pb-20 d-flex justify-space-between align-center">
-                                        <p class="title">Return 1M</p>
-                                        <p class="value d-flex align-center">
-                                            <img class="saveIcon" src="../../../../assets/icons/arrow-up.png" /> 198.42%
-                                        </p>
-                                    </div>
-                                    <div id="chart" class="providersList-chart">
-                                        <apx-chart
-                                          [series]="chartOptions.series"
-                                          [chart]="chartOptions.chart"
-                                          [xaxis]="chartOptions.xaxis"
-                                          [stroke]="chartOptions.stroke"
-                                          [tooltip]="chartOptions.tooltip"
-                                          [yaxis]="chartOptions.yaxis"
-                                          [grid]="chartOptions.grid"
-                                          [dataLabels]="chartOptions.dataLabels"
-                                          [fill]="chartOptions.fill"
-                                          [colors]="chartOptions.colors"
-                                          [labels]="chartOptions.labels"
-                                          [responsive]="chartOptions.responsive"
-                                        ></apx-chart>
-                                    </div>
-                                    <div class="main-content d-flex align-center flex-wrap justify-space-between g-20">
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Fee</p>
-                                            <p class="subtitle">50%</p>
-                                        </div>
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Win Ratio</p>
-                                            <p class="subtitle">5.05</p>
-                                        </div>
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Drawdown</p>
-                                            <p class="subtitle">50%</p>
-                                        </div>
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Investors</p>
-                                            <p class="subtitle">1</p>
-                                        </div>
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Invested</p>
-                                            <p class="subtitle">$500</p>
-                                        </div>
-                                        <div class="text d-flex flex-column">
-                                            <p class="title">Own Funds</p>
-                                            <p class="subtitle">$2,209</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <div class="content d-flex justify-space-between align-center">
-                                        <div class="badge d-flex justify-space-between g-10">
-                                            <p>Risk</p>
-                                            <div class="badge-count">
-                                                <p>10</p>
+                    <div class="providersList-section">
+                        <div class="providersList-cards" *ngIf="viewMode == 'cards'">
+                            <mat-card *ngFor="let card of cards" appearance="outlined" class="providersList-card">
+                                <mat-card-content>
+                                    <div class="header d-flex align-center justify-space-between">
+                                        <div class="title d-flex align-start g-10">
+                                            <img class="provider-icon" src="../../../../assets/icons/providerIcon.jpeg" />
+                                            <div class="text">
+                                                <p class="heading">Catalog</p>
+                                                <p class="sub-heading">catalogapp.io</p>
                                             </div>
                                         </div>
-                                        <button class="edit-btn content-btn">
-                                            Copy
-                                        </button>
+                                        <div class="info d-flex align-center justify-space-between g-10">
+                                            <img class="countryIcon" src="../../../../assets/icons/southAfricaIcon.svg" />
+                                            <img class="saveIcon" src="../../../../assets/icons/saveIcon.png" />
+                                        </div>
                                     </div>
-                                </div>
-                            </mat-card-content>
-                        </mat-card>
-                        
+                                    <div class="main">
+                                        <div class="main-head pb-20 d-flex justify-space-between align-center">
+                                            <p class="title">Return 1M</p>
+                                            <p class="value d-flex align-center">
+                                                <img class="saveIcon" src="../../../../assets/icons/arrow-up.png" /> 198.42%
+                                            </p>
+                                        </div>
+                                        <div id="chart" class="providersList-chart">
+                                            <apx-chart
+                                              [series]="chartOptions.series"
+                                              [chart]="chartOptions.chart"
+                                              [xaxis]="chartOptions.xaxis"
+                                              [stroke]="chartOptions.stroke"
+                                              [tooltip]="chartOptions.tooltip"
+                                              [yaxis]="chartOptions.yaxis"
+                                              [grid]="chartOptions.grid"
+                                              [dataLabels]="chartOptions.dataLabels"
+                                              [fill]="chartOptions.fill"
+                                              [colors]="chartOptions.colors"
+                                              [labels]="chartOptions.labels"
+                                              [responsive]="chartOptions.responsive"
+                                            ></apx-chart>
+                                        </div>
+                                        <div class="main-content d-flex align-center flex-wrap justify-space-between g-20">
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Fee</p>
+                                                <p class="subtitle">50%</p>
+                                            </div>
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Win Ratio</p>
+                                                <p class="subtitle">5.05</p>
+                                            </div>
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Drawdown</p>
+                                                <p class="subtitle">50%</p>
+                                            </div>
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Investors</p>
+                                                <p class="subtitle">1</p>
+                                            </div>
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Invested</p>
+                                                <p class="subtitle">$500</p>
+                                            </div>
+                                            <div class="text d-flex flex-column">
+                                                <p class="title">Own Funds</p>
+                                                <p class="subtitle">$2,209</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="content d-flex justify-space-between align-center">
+                                            <div class="badge d-flex justify-space-between g-10">
+                                                <p>Risk</p>
+                                                <div class="badge-count">
+                                                    <p>10</p>
+                                                </div>
+                                            </div>
+                                            <button class="edit-btn content-btn">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="providersList-table" *ngIf="viewMode == 'table'">
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px;width: 100%;" [rowData]="rowData"
+                            [columnDefs]="colDefs" [suppressRowHoverHighlight]="true">
+                        </ag-grid-angular>
+                        </div>
                     </div>
                 </mat-tab>
             </mat-tab-group>
