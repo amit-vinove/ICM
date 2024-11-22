@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -12,6 +12,7 @@ import {
   ApexStroke, ApexFill
 } from "ng-apexcharts";
 import { ColDef } from 'ag-grid-community';
+import { TypeIconComponent } from './cellRenderers/type-icon/type-icon.component';
 
 export interface User {
   name: string;
@@ -36,13 +37,13 @@ export type ChartOptions = {
 })
 export class ProvidersListComponent {
 
-  public viewMode:any = 'table'
+  public viewMode: any = 'table'
 
   @ViewChild("chart") chart !: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
 
   myControl = new FormControl<string | User>('');
-  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  options: User[] = [{ name: 'Mary' }, { name: 'Shelley' }, { name: 'Igor' }];
   filteredOptions!: Observable<User[]>;
 
   cards = Array(10).fill(0);
@@ -87,7 +88,7 @@ export class ProvidersListComponent {
       stroke: {
         show: true,
         curve: "smooth",
-        width:3,
+        width: 3,
       },
       colors: ['#12B76A'],
       xaxis: {
@@ -131,23 +132,23 @@ export class ProvidersListComponent {
         show: false, // Hide background grid lines
         padding: {
           top: -70, // Reduce top padding of grid to bring the chart area up
-          left:-10,
-          bottom:-20,
-          right:-10,
+          left: -10,
+          bottom: -20,
+          right: -10,
         }
       },
       tooltip: {
         enabled: false // Disables the tooltip on hover
       },
-            responsive: [
+      responsive: [
         {
           breakpoint: 600,
           options: {
             chart: {
-              height: 120 
+              height: 120
             },
             stroke: {
-              width: 2 
+              width: 2
             },
             grid: {
               padding: {
@@ -185,23 +186,81 @@ export class ProvidersListComponent {
     );
   }
 
-  rowData =   [
-    { Id:1, nickname: "Amit Test", tradingAccount: "11003456789", strategyMode: 'All', equity: "$56.7", registered: "9/16/24, 7:02:20 AM",actionUrl:"/providers-profile/" },
-    { Id:2,nickname: "John Doe", tradingAccount: "11003456712", strategyMode: 'All', equity: "$34.5", registered: "9/18/24, 10:12:40 AM" ,actionUrl:"/providers-profile/"},
-    { Id:3,nickname: "Alice Smith", tradingAccount: "11003456713", strategyMode: 'All', equity: "$78.9", registered: "9/20/24, 2:23:18 PM",actionUrl:"/providers-profile/" },
-    { Id:4,nickname: "Bob Johnson", tradingAccount: "11003456714", strategyMode: 'All', equity: "$23.6", registered: "9/21/24, 9:45:50 AM" ,actionUrl:"/providers-profile/"},
-    { Id:5,nickname: "Charlie Brown", tradingAccount: "11003456715", strategyMode: 'All', equity: "$92.3", registered: "9/23/24, 11:34:12 AM",actionUrl:"/providers-profile/" },
-    { Id:6,nickname: "Diana Lee", tradingAccount: "11003456716", strategyMode: 'All', equity: "$67.8", registered: "9/25/24, 5:50:22 PM",actionUrl:"/providers-profile/" },
-    { Id:7,nickname: "Evan Thomas", tradingAccount: "11003456717", strategyMode: 'All', equity: "$48.1", registered: "9/26/24, 8:16:35 AM" ,actionUrl:"/providers-profile/"}
-  ]
+  rowData = [
+    {
+      id: 1,
+      strategy: "Catalog",
+      type: "Equity",
+      investors: 1,
+      invested: "$500",
+      ownFunds: "$2200",
+      drawdown: "54.5%",
+      fee: "50%",
+      risk: "High",
+      chart: "Bar",
+    },
+    {
+      id: 2,
+      strategy: "Growth Fund",
+      type: "Equity",
+      investors: 25,
+      invested: "$10,000",
+      ownFunds: "$5,000",
+      drawdown: "12.3%",
+      fee: "1.2%",
+      risk: "Medium",
+      chart: "Line",
+    },
+    {
+      id: 3,
+      strategy: "Value Fund",
+      type: "Fixed Income",
+      investors: 12,
+      invested: "$2,500",
+      ownFunds: "$1,000",
+      drawdown: "8.7%",
+      fee: "0.8%",
+      risk: "Low",
+      chart: "Bar",
+    },
+    {
+      id: 4,
+      strategy: "High Risk Hedge",
+      type: "Hedge Fund",
+      investors: 50,
+      invested: "$50,000",
+      ownFunds: "$15,000",
+      drawdown: "70.0%",
+      fee: "20%",
+      risk: "High",
+      chart: "Pie",
+    },
+    {
+      id: 5,
+      strategy: "Stable Growth",
+      type: "Mutual Fund",
+      investors: 100,
+      invested: "$75,000",
+      ownFunds: "$50,000",
+      drawdown: "5.4%",
+      fee: "0.5%",
+      risk: "Low",
+      chart: "Area",
+    },
+  ];
+
 
   // Column Definitions: Defines the columns to be displayed.
   colDefs: ColDef[] = [
-    { field: "nickname" , headerName:'Nickname',resizable: false , suppressSizeToFit: true},
-    { field: "tradingAccount" , headerName : 'Trading Account',resizable: false},
-    { field: "strategyMode" ,headerName:'Strategy Mode',resizable: false},
-    { field: "equity",headerName:'Equity' ,resizable: false },
-    { field: "registered" , headerName:'Registered',resizable: false,flex:1},
+    { field: "strategy", headerName: 'Strategy Name', resizable: false, suppressSizeToFit: true },
+    { field: "type", headerName: 'Type', resizable: false,cellRenderer:TypeIconComponent },
+    { field: "investors", headerName: 'Investors', resizable: false },
+    { field: "invested", headerName: 'Invested', resizable: false },
+    { field: "ownFunds", headerName: 'Own Funds', resizable: false},
+    { field: "drawdown", headerName: 'Drawdown', resizable: false },
+    { field: "fee", headerName: 'Fee', resizable: false },
+    { field: "risk", headerName: 'Risk', resizable: false },
+    { field: "chart", headerName: 'Chart', resizable: false },
   ];
 
   displayFn(user: User): string {
@@ -214,7 +273,7 @@ export class ProvidersListComponent {
     return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
-  switchMode(type:any){
+  switchMode(type: any) {
     this.viewMode = type
   }
 

@@ -32,6 +32,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { MatIconModule } from '@angular/material/icon';
+import { TypeIconComponent } from './views/providers-list/cellRenderers/type-icon/type-icon.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { MatIconModule } from '@angular/material/icon';
     OffersRendererComponent,
     ProvidersListComponent,
     ReportsComponent,
+    TypeIconComponent,
   ],
   imports: [
     CommonModule,
