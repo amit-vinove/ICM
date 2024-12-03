@@ -13,6 +13,9 @@ import {
 } from "ng-apexcharts";
 import { ColDef } from 'ag-grid-community';
 import { TypeIconComponent } from './cellRenderers/type-icon/type-icon.component';
+import { StrategyCellRendererComponent } from './cellRenderers/strategy-cell-renderer/strategy-cell-renderer.component';
+import { RiskCellRendererComponent } from './cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
+import { ChartCellRendererComponent } from './cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
 
 export interface User {
   name: string;
@@ -190,7 +193,6 @@ export class ProvidersListComponent {
     {
       id: 1,
       strategy: "Catalog",
-      type: "Equity",
       investors: 1,
       invested: "$500",
       ownFunds: "$2200",
@@ -198,11 +200,11 @@ export class ProvidersListComponent {
       fee: "50%",
       risk: "High",
       chart: "Bar",
+      strategyIcon:'../../../../assets/icons/providerIcon.jpeg'
     },
     {
       id: 2,
       strategy: "Growth Fund",
-      type: "Equity",
       investors: 25,
       invested: "$10,000",
       ownFunds: "$5,000",
@@ -210,11 +212,12 @@ export class ProvidersListComponent {
       fee: "1.2%",
       risk: "Medium",
       chart: "Line",
+      strategyIcon:'../../../../assets/icons/providerIcon1.png'
+
     },
     {
       id: 3,
       strategy: "Value Fund",
-      type: "Fixed Income",
       investors: 12,
       invested: "$2,500",
       ownFunds: "$1,000",
@@ -222,11 +225,12 @@ export class ProvidersListComponent {
       fee: "0.8%",
       risk: "Low",
       chart: "Bar",
+      strategyIcon:'../../../../assets/icons/providerIcon2.png'
+
     },
     {
       id: 4,
       strategy: "High Risk Hedge",
-      type: "Hedge Fund",
       investors: 50,
       invested: "$50,000",
       ownFunds: "$15,000",
@@ -234,11 +238,12 @@ export class ProvidersListComponent {
       fee: "20%",
       risk: "High",
       chart: "Pie",
+      strategyIcon:'../../../../assets/icons/providerIcon3.png'
+
     },
     {
       id: 5,
-      strategy: "Stable Growth",
-      type: "Mutual Fund",
+      strategy: "Quotient",
       investors: 100,
       invested: "$75,000",
       ownFunds: "$50,000",
@@ -246,21 +251,43 @@ export class ProvidersListComponent {
       fee: "0.5%",
       risk: "Low",
       chart: "Area",
+      strategyIcon:'../../../../assets/icons/providerIcon4.png'
+    },
+    {
+      id: 6,
+      strategy: "Layers",
+      investors: 100,
+      invested: "$75,000",
+      ownFunds: "$50,000",
+      drawdown: "5.4%",
+      fee: "0.5%",
+      risk: "Low",
+      chart: "Area",
+      strategyIcon:'../../../../assets/icons/providerIcon5.png'
+    },
+    {
+      id: 7,
+      strategy: "Stable Growth",
+      investors: 100,
+      invested: "$75,000",
+      ownFunds: "$50,000",
+      drawdown: "5.4%",
+      fee: "0.5%",
+      risk: "Low",
+      chart: "Area",
+      strategyIcon:'../../../../assets/icons/providerIcon6.png'
     },
   ];
-
-
-  // Column Definitions: Defines the columns to be displayed.
   colDefs: ColDef[] = [
-    { field: "strategy", headerName: 'Strategy Name', resizable: false, suppressSizeToFit: true },
+    { field: "strategy", headerName: 'Strategy Name', resizable: false, suppressSizeToFit: true ,cellRenderer: StrategyCellRendererComponent},
     { field: "type", headerName: 'Type', resizable: false,cellRenderer:TypeIconComponent },
     { field: "investors", headerName: 'Investors', resizable: false },
     { field: "invested", headerName: 'Invested', resizable: false },
     { field: "ownFunds", headerName: 'Own Funds', resizable: false},
     { field: "drawdown", headerName: 'Drawdown', resizable: false },
     { field: "fee", headerName: 'Fee', resizable: false },
-    { field: "risk", headerName: 'Risk', resizable: false },
-    { field: "chart", headerName: 'Chart', resizable: false },
+    { field: "risk", headerName: 'Risk', resizable: false ,cellRenderer:RiskCellRendererComponent},
+    { field: "chart", headerName: 'Chart', resizable: false,cellRenderer:ChartCellRendererComponent },
   ];
 
   displayFn(user: User): string {

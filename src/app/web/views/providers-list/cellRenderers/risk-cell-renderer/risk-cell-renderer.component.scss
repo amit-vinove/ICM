@@ -1,0 +1,36 @@
+.row-container {
+    display: flex;
+    // justify-content: center; 
+    align-items: center;  
+    height: 100%;           
+  }
+  
+  .badge {
+    padding: 4px 4px 4px 12px;
+    background-color: #FEF3F2;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 10px;
+    align-items: center;
+    width: auto;
+    max-width: 200px;
+  
+    p {
+      color: #B42318;
+      font-size: 12px;
+    }
+  
+    .badge-count {
+      background-color: #D92D20;
+      padding: 2px 8px;
+      border-radius: 16px;
+  
+      p {
+        color: white;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+  

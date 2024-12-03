@@ -33,6 +33,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { MatIconModule } from '@angular/material/icon';
 import { TypeIconComponent } from './views/providers-list/cellRenderers/type-icon/type-icon.component';
+import { StrategyCellRendererComponent } from './views/providers-list/cellRenderers/strategy-cell-renderer/strategy-cell-renderer.component';
+import { RiskCellRendererComponent } from './views/providers-list/cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
+import { ChartCellRendererComponent } from './views/providers-list/cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { TypeIconComponent } from './views/providers-list/cellRenderers/type-ico
     ProvidersListComponent,
     ReportsComponent,
     TypeIconComponent,
+    StrategyCellRendererComponent,
+    RiskCellRendererComponent,
+    ChartCellRendererComponent,
   ],
   imports: [
     CommonModule,
