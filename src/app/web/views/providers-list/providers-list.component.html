@@ -99,6 +99,7 @@
                                               [colors]="chartOptions.colors"
                                               [labels]="chartOptions.labels"
                                               [responsive]="chartOptions.responsive"
+                                              [legend]="chartOptions.legend"
                                             ></apx-chart>
                                         </div>
                                         <div class="main-content d-flex align-center flex-wrap justify-space-between g-20">
@@ -145,7 +146,7 @@
                             </mat-card>
                         </div>
                         <div class="providersList-table" *ngIf="viewMode == 'table'">
-                            <ag-grid-angular class="ag-theme-alpine" style="height: 400px;width: 100%;" [rowData]="rowData"
+                            <ag-grid-angular class="ag-theme-alpine" style="height: 500px;width: 100%;" [rowData]="rowData"
                             [columnDefs]="colDefs" [suppressRowHoverHighlight]="true">
                         </ag-grid-angular>
                         </div>

@@ -202,6 +202,7 @@
     }
   }
   .providersList-table{
+    height: 500px;
     width: 100%;
   }
 }
@@ -222,4 +223,8 @@
 .countryIcon {
   height: 30px;
   width: 30px;
+}
+::ng-deep .chartHeader .ag-header-cell-comp-wrapper .ag-header-cell-label{
+  display: flex;
+  justify-content: center;
 }

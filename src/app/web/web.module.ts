@@ -36,6 +36,7 @@ import { TypeIconComponent } from './views/providers-list/cellRenderers/type-ico
 import { StrategyCellRendererComponent } from './views/providers-list/cellRenderers/strategy-cell-renderer/strategy-cell-renderer.component';
 import { RiskCellRendererComponent } from './views/providers-list/cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
 import { ChartCellRendererComponent } from './views/providers-list/cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
+import { ButtonCellRendererComponent } from './views/providers-list/cellRenderers/button-cell-renderer/button-cell-renderer.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ChartCellRendererComponent } from './views/providers-list/cellRenderers
     StrategyCellRendererComponent,
     RiskCellRendererComponent,
     ChartCellRendererComponent,
+    ButtonCellRendererComponent,
   ],
   imports: [
     CommonModule,

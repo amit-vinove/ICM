@@ -38,14 +38,22 @@ export class ChartCellRendererComponent {
     this.chartOptions = {
       series: [
         {
-          name: 'Counts',
-          data: [15, 23, 18, 32] // Sample counts for each category
-        }
+          name: 'Dataset 1', // First dataset
+          data: [10, 13, 18, 23, 29, 32, 35, 40, 45]
+        },
+        {
+          name: 'Dataset 2', // Second dataset
+          data: [20, 22, 27, 30, 35, 39, 45, 51, 57]
+        },
+        {
+          name: 'Dataset 3', // Third dataset
+          data: [30, 34, 37, 40, 42, 46, 49, 54, 65]
+        },
       ],
       chart: {
         height: 100,
-        width: 100,
-        type: "area",
+        width: 200,
+        type: "line",
         toolbar: {
           show: false,
         },
@@ -53,12 +61,15 @@ export class ChartCellRendererComponent {
       dataLabels: {
         enabled: false
       },
+      legend: {
+        show: false // Hide the legend
+      },
       stroke: {
         show: true,
-        curve: "smooth",
-        width: 3,
+        curve: "straight",
+        width: [3, 3, 3],
       },
-      colors: ['#12B76A'],
+      colors: ['#0D4878', '#146BB2', '#07253E',], 
       xaxis: {
         labels: {
           show: false, // Hide x-axis labels
@@ -69,7 +80,7 @@ export class ChartCellRendererComponent {
         axisBorder: {
           show: false // Hide x-axis border line
         },
-        categories: ['Jan', 'Feb', 'Mar', 'Apr'] // Sample month labels
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'] // Sample month labels
       },
       yaxis: {
         labels: {
@@ -83,24 +94,11 @@ export class ChartCellRendererComponent {
           show: false // Hide y-axis ticks
         }
       },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shade: 'light',
-          type: 'vertical',
-          shadeIntensity: 0.5,
-          gradientToColors: ['#ECFDF3'],
-          inverseColors: false,
-          opacityFrom: 0.85,
-          opacityTo: 0.35,
-          stops: [0, 100]
-        }
-      },
       grid: {
         show: false, // Hide background grid lines
         padding: {
-          top: -60,
-          left: -20,
+          top: -80,
+          left: 0,
           bottom: 0,
           right: 0,
         }

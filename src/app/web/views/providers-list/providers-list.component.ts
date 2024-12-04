@@ -16,6 +16,7 @@ import { TypeIconComponent } from './cellRenderers/type-icon/type-icon.component
 import { StrategyCellRendererComponent } from './cellRenderers/strategy-cell-renderer/strategy-cell-renderer.component';
 import { RiskCellRendererComponent } from './cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
 import { ChartCellRendererComponent } from './cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
+import { ButtonCellRendererComponent } from './cellRenderers/button-cell-renderer/button-cell-renderer.component';
 
 export interface User {
   name: string;
@@ -39,8 +40,8 @@ export type ChartOptions = {
   styleUrl: './providers-list.component.scss'
 })
 export class ProvidersListComponent {
-
-  public viewMode: any = 'table'
+// viewmode = cards | table 
+  public viewMode: any = 'cards'
 
   @ViewChild("chart") chart !: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
@@ -279,15 +280,16 @@ export class ProvidersListComponent {
     },
   ];
   colDefs: ColDef[] = [
-    { field: "strategy", headerName: 'Strategy Name', resizable: false, suppressSizeToFit: true ,cellRenderer: StrategyCellRendererComponent},
-    { field: "type", headerName: 'Type', resizable: false,cellRenderer:TypeIconComponent },
-    { field: "investors", headerName: 'Investors', resizable: false },
-    { field: "invested", headerName: 'Invested', resizable: false },
-    { field: "ownFunds", headerName: 'Own Funds', resizable: false},
-    { field: "drawdown", headerName: 'Drawdown', resizable: false },
-    { field: "fee", headerName: 'Fee', resizable: false },
-    { field: "risk", headerName: 'Risk', resizable: false ,cellRenderer:RiskCellRendererComponent},
-    { field: "chart", headerName: 'Chart', resizable: false,cellRenderer:ChartCellRendererComponent },
+    { field: "strategy", headerName: 'Strategy Name', resizable: false, width:250,suppressSizeToFit: true ,cellRenderer: StrategyCellRendererComponent},
+    { field: "type", headerName: 'Type', resizable: false,cellRenderer:TypeIconComponent,width:100 },
+    { field: "investors", headerName: 'Investors', resizable: false ,width:150},
+    { field: "invested", headerName: 'Invested', resizable: false,width:150 },
+    { field: "ownFunds", headerName: 'Own Funds', resizable: false,width:150},
+    { field: "drawdown", headerName: 'Drawdown', resizable: false,width:150 },
+    { field: "fee", headerName: 'Fee', resizable: false,width:150 },
+    { field: "risk", headerName: 'Risk', resizable: false ,cellRenderer:RiskCellRendererComponent,width:150},
+    { field: "chart", headerName: 'Chart', resizable: false,cellRenderer:ChartCellRendererComponent ,width:200,headerClass:'chartHeader'},
+    { field: "action", headerName: '', resizable: false,cellRenderer:ButtonCellRendererComponent,width:150,cellStyle: {'padding-left':'40px'}, },
   ];
 
   displayFn(user: User): string {
