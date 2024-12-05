@@ -37,6 +37,7 @@ import { StrategyCellRendererComponent } from './views/providers-list/cellRender
 import { RiskCellRendererComponent } from './views/providers-list/cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
 import { ChartCellRendererComponent } from './views/providers-list/cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
 import { ButtonCellRendererComponent } from './views/providers-list/cellRenderers/button-cell-renderer/button-cell-renderer.component';
+import { ProviderListProfileComponent } from './views/providers-list/provider-list-profile/provider-list-profile.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ButtonCellRendererComponent } from './views/providers-list/cellRenderer
     RiskCellRendererComponent,
     ChartCellRendererComponent,
     ButtonCellRendererComponent,
+    ProviderListProfileComponent,
   ],
   imports: [
     CommonModule,

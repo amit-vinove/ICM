@@ -1,0 +1,81 @@
+<mat-card appearance="outlined" class="section-card">
+    <mat-card-content class="section-card-content">
+        <div class="pb-20">
+            <button class="secondary-btn"> <img src="../../../../../assets/icons/arrow-left.svg" />Back</button>
+        </div>
+        <div class="profile-header-card">
+            <div class="title-area d-flex justify-space-between align-center">
+                <div class="d-flex justify-space-between align-center g-10">
+                    <img class="provider-icon" src="../../../../assets/icons/providerIcon.jpeg" />
+                    <div class="text">
+                        <p class="heading">Catalog</p>
+                        <p class="sub-heading">&#64;catalogapp.io</p>
+                    </div>
+                </div>
+                <button class="primary-btn">Copy Strategy</button>
+            </div>
+            <div class="mid-area d-flex justify-space-between align-center pb-10">
+                <div>
+                    <p>Manager Bio</p>
+                    <p class="sub-heading">The Strategy Manager hasn’t provided a BIO</p>
+                </div>
+                <div class="values d-flex justify-space-between align-center g-20">
+                    <div>
+                        <p>Leverage</p>
+                        <p class="sub-heading">500</p>
+                    </div>
+                    <div>
+                        <p>Fees</p>
+                        <p class="sub-heading">50%</p>
+                    </div>
+                    <div>
+                        <p>Min. Investment</p>
+                        <p class="sub-heading">$500</p>
+                    </div>
+                    <div>
+                        <p>Invested</p>
+                        <p class="sub-heading">$500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="desc-area d-flex justify-space-between align-center pb-10">
+                <div>
+                    <p>Description</p>
+                    <p class="sub-heading">Permanent little.</p>
+                </div>
+                <div class="values d-flex justify-space-between align-center g-20">
+                    <div>
+                        <img class="values-icon2" src="../../../../../assets/icons/commodities.svg" />
+                    </div>
+                    <div>
+                        <img class="values-icon1" src="../../../../../assets/icons/human.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pb-20">
+            <div class="assets-card">
+                <h6>Asset Allocation</h6>
+                <div>
+                    <apx-chart
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [xaxis]="chartOptions.xaxis"
+                    [stroke]="chartOptions.stroke"
+                    [tooltip]="chartOptions.tooltip"
+                    [yaxis]="chartOptions.yaxis"
+                    [grid]="chartOptions.grid"
+                    [dataLabels]="chartOptions.dataLabels"
+                    [fill]="chartOptions.fill"
+                    [colors]="chartOptions.colors"
+                    [labels]="chartOptions.labels"
+                    [responsive]="chartOptions.responsive"
+                    [legend]="chartOptions.legend"
+                    [plotOptions]="chartOptions.plotOptions"
+                    [states]="chartOptions.states"
+                  ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -5,6 +5,7 @@
 
 :root {
     --primaryBlue: #094B82; 
+    --secondaryBlue:#146BB2;
     --primaryWhite:#FFFFFF;
     --mat-select-panel-background-color: white;
     --mat-autocomplete-background-color: white; /* Replace #f0f0f0 with your desired color */
@@ -147,7 +148,7 @@ p{
 }
 
 .primary-btn{
-  background: var(--primaryBlue);
+  background: var(--secondaryBlue);
   color: white;
   border-radius: 8px;
   font-weight: 500;
@@ -177,10 +178,10 @@ p{
   transition: background-color 0.3s linear, border-radius 0.3s linear, padding 0.3s linear, width 0.3s linear; 
 }
 .secondary-btn-active{
-  background-color: #e3e3e3 !important;
+  background-color: #e3e3e396 !important;
 }
 .secondary-btn:hover{
-  background-color: #e3e3e3;
+  background-color: #e3e3e396;
 }
 .edit-btn{
   padding: 9px 15px;
@@ -195,7 +196,7 @@ p{
   cursor: pointer;
 }
 .edit-btn:hover{
-  background-color: #e3e3e3;
+  background-color: #e3e3e396;
 }
 
 .header-title{

@@ -12,6 +12,7 @@ import { SubscriptionsComponent } from './views/subscriptions/subscriptions.comp
 import { OffersComponent } from './views/offers/offers.component';
 import { ProvidersListComponent } from './views/providers-list/providers-list.component';
 import { ReportsComponent } from './views/reports/reports.component';
+import { ProviderListProfileComponent } from './views/providers-list/provider-list-profile/provider-list-profile.component';
 
 const WEB_ROUTES: Routes = [
   {
@@ -63,6 +64,11 @@ const WEB_ROUTES: Routes = [
       {
         path: 'providersList',
         component: ProvidersListComponent,
+        title: "ICM | Providers List"
+      },
+      {
+        path: 'providersList/profile/:id',
+        component: ProviderListProfileComponent,
         title: "ICM | Providers List"
       },
       {

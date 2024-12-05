@@ -41,14 +41,14 @@
     }
 
     h5:hover {
-      background-color: #e3e3e3;
+      background-color: #e3e3e396;
     }
 
     h5:hover {
-      background-color: #e3e3e3;
+      background-color: #e3e3e396;
     }
     .active {
-      background-color: #e3e3e3;
+      background-color: #e3e3e396;
     }
   }
 }
@@ -117,6 +117,9 @@
     
       .header {
         .title {
+          a{
+            text-decoration: none !important;
+          }
           .text {
             .heading {
               font-size: 14px;
