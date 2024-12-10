@@ -38,6 +38,10 @@ import { RiskCellRendererComponent } from './views/providers-list/cellRenderers/
 import { ChartCellRendererComponent } from './views/providers-list/cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
 import { ButtonCellRendererComponent } from './views/providers-list/cellRenderers/button-cell-renderer/button-cell-renderer.component';
 import { ProviderListProfileComponent } from './views/providers-list/provider-list-profile/provider-list-profile.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDividerModule} from '@angular/material/divider';
+import { SymbolCellRendererComponent } from './views/providers-list/cellRenderers/symbol-cell-renderer/symbol-cell-renderer.component';
+import { ProviderListProfileTypeCellRendererComponent } from './views/providers-list/cellRenderers/provider-list-profile-type-cell-renderer/provider-list-profile-type-cell-renderer.component';
 
 
 @NgModule({
@@ -65,6 +69,8 @@ import { ProviderListProfileComponent } from './views/providers-list/provider-li
     ChartCellRendererComponent,
     ButtonCellRendererComponent,
     ProviderListProfileComponent,
+    SymbolCellRendererComponent,
+    ProviderListProfileTypeCellRendererComponent,
   ],
   imports: [
     CommonModule,
@@ -72,7 +78,8 @@ import { ProviderListProfileComponent } from './views/providers-list/provider-li
     MatSidenavModule,
     WebRoutingModule,
     AgGridModule,MatInputModule,MatSelectModule,MatFormFieldModule,MatMenuModule,
-    MatAutocompleteModule,MatCardModule,NgApexchartsModule,MatNativeDateModule,MatDatepickerModule,MatIconModule
+    MatAutocompleteModule,MatCardModule,NgApexchartsModule,MatNativeDateModule,MatDatepickerModule,
+    MatIconModule,MatButtonToggleModule,MatDividerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   
