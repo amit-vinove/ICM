@@ -52,7 +52,7 @@
                     <img src="../../../../assets/icons/sun-Icon-white.png" />
                     <p>Dark/Light Mode</p>
                 </li>
-                <li>
+                <li [matMenuTriggerFor]="languageMenu">
                     <img src="../../../../assets/icons/GB.png" />
                     <p>Language</p>
                 </li>
@@ -71,6 +71,11 @@
                     </a>
                 </li>
             </ul>
+            <mat-menu #languageMenu="matMenu" class="languageMenu">
+                <button mat-menu-item *ngFor="let lang of languages" (click)="switchLanguage(lang.code)">
+                  {{ lang.label }}
+                </button>
+              </mat-menu>              
         </div>
     </div>
 </div>

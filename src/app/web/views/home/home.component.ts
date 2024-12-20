@@ -6,6 +6,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,8 @@ export class HomeComponent {
   readonly beFollowerDialog = inject(MatDialog);
 
 
-  constructor() {
-
+  constructor(public translate: TranslateService) {
+    
   }
   // Define the row data for the grid
   rowData = [

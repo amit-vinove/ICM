@@ -125,3 +125,20 @@
     height: 20px;
     width: 20px;
 }
+
+::ng-deep .languageMenu .mat-mdc-menu-panel{
+    background-color: white !important;
+  }
+  ::ng-deep .languageMenu .mat-mdc-menu-content {
+    background-color: white !important;
+  }
+  ::ng-deep .languageMenu .mat-mdc-menu-item{
+    padding-left: 20px;
+    padding-right: 20px;
+    .mat-mdc-menu-item-text{
+        font-size: 17px !important;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+  }
