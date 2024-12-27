@@ -17,10 +17,15 @@ export class HomeComponent {
 
   readonly beProviderDialog = inject(MatDialog);
   readonly beFollowerDialog = inject(MatDialog);
-
+  colDefs: ColDef[] = [];
 
   constructor(public translate: TranslateService) {
-    
+    this.initializeColDefs();
+  }
+  ngOnInit() {
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+    });
   }
   // Define the row data for the grid
   rowData = [
@@ -35,19 +40,28 @@ export class HomeComponent {
   ];
 
   // Define the columns, including the ActionButtonComponent in the last column
-  colDefs: ColDef[] = [
-    { field: "nickname", headerName: 'Nickname', resizable: false , width: 250, suppressSizeToFit: true,cellRenderer: NicknameRendererComponent},
-    { field: "fees", headerName: 'Fees', resizable: false , width: 140,maxWidth:140 },
-    { field: "followers", headerName: 'Followers', resizable: false , width: 150,maxWidth:150 },
-    { field: "followerGrowth", headerName: 'Follower Growth', resizable: false, width: 170,maxWidth:170  },
-    { field: "closedProfit", headerName: 'Closed Profit', resizable: false , width: 150,maxWidth:150 },
-    { field: "registered", headerName: 'Registered', resizable: false, width: 250,maxWidth:250  },
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent,flex:1
-    },
-  ];
+  initializeColDefs() {
+    this.colDefs = [
+      { field: "nickname", headerName: this.translate.instant('HOME.Nickname'), resizable: false, width: 250, suppressSizeToFit: true, cellRenderer: NicknameRendererComponent },
+      { field: "fees", headerName: this.translate.instant('HOME.Fees'), resizable: false, width: 140, maxWidth: 140 },
+      { field: "followers", headerName: this.translate.instant('HOME.Followers'), resizable: true, width: 150,minWidth:150 ,maxWidth: 250 },
+      { field: "followerGrowth", headerName: this.translate.instant('HOME.Followers Growth'), resizable: true, width: 170,minWidth:170 ,maxWidth: 250 },
+      { field: "closedProfit", headerName: this.translate.instant('HOME.Closed Profit'), resizable: true, width: 150,minWidth:150 ,maxWidth: 250 },
+      { field: "registered", headerName: this.translate.instant('HOME.Registered'), resizable: false, width: 250, maxWidth: 250 },
+      {
+        field: "actions",
+        headerName: "", // No translation needed for empty header
+        cellRenderer: ActionButtonComponent,
+        flex: 1
+      }
+    ];
+  }
+
+  onLanguageChange() {
+    // Reinitialize column definitions when language changes
+    this.initializeColDefs();
+  }
+
   
   openBeProviderDialog(){
     const dialogRef = this.beProviderDialog.open(BeProviderDialog,{

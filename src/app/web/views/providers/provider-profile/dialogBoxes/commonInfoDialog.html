@@ -1,25 +1,25 @@
-<h2 mat-dialog-title class="text-center">Common Information</h2>
-<p class="text-center">Provider's common settings</p>
+<h2 mat-dialog-title class="text-center">{{"PROVIDERS_PROFILE.Common Information" | translate}}</h2>
+<p class="text-center">{{"PROVIDERS_PROFILE.Provider's common settings"|translate}}</p>
 <mat-dialog-content class="mat-typography">
   <mat-form-field class="commonInfo-Email">
-    <mat-label>Nickname</mat-label>
+    <mat-label>{{"PROVIDERS_PROFILE.Nickname" | translate}}</mat-label>
     <input type="text" matInput placeholder="Provider 1">
   </mat-form-field>
-  <p class="pb-10">Provider's name to be displayed for followers
+  <p class="pb-10">{{"PROVIDERS_PROFILE.Provider's name to be displayed for followers" | translate}}
   </p>
   <mat-form-field class="commonInfo-Scope">
-    <mat-label>Show account name</mat-label>
+    <mat-label>{{"PROVIDERS_PROFILE.Show account name"|translate}}</mat-label>
     <mat-select>
-      <mat-option value="active">Disabled</mat-option>
-      <mat-option value="all">Enabled</mat-option>
+      <mat-option value="active">{{"COMMON.Disabled"|translate}}</mat-option>
+      <mat-option value="all">{{"COMMON.Enabled"|translate}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <p class="pb-10">Show account name in the provider profile in the ratings
+  <p class="pb-10">{{"PROVIDERS_PROFILE.Show account name in the provider profile in the ratings"|translate}}
   </p>
 </mat-dialog-content>
 <div class="d-flex justify-center g-20">
-  <button mat-dialog-close class="secondary-btn">Cancel</button>
-  <button class="primary-btn">Save Changes</button>
+  <button mat-dialog-close class="secondary-btn">{{"COMMON.Cancel"|translate}}</button>
+  <button class="primary-btn">{{"COMMON.Save Changes"|translate}}</button>
 </div>
 <!-- <mat-dialog-actions class="d-flex justify-center g-20">
   <button mat-dialog-close class="secondary-btn">Cancel</button>

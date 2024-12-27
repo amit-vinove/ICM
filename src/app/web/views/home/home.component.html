@@ -3,47 +3,47 @@
         <div class="home-card">
             <div class="header d-flex justify-space-between align-center">
                 <div class="header-title">
-                    <h5>Hello {{ 'WELCOME' | translate }}</h5>
-                    <p>Homepage with overall statistics</p>
+                    <h5>{{ 'HOME.HELLO' | translate }}</h5>
+                    <p>{{'HOME.Homepage with overall statistics' | translate}}</p>
                 </div>
                 <div class="header-buttons d-flex justify-space-between align-center g-20">
                     <button class="primary-btn" (click)="openBeProviderDialog()">
                         <img src="../../../../assets/icons/plusIcon.png" />
-                        Be A Provider
+                        {{'HOME.Be A Provider' | translate}}
                     </button>
                     <button class="primary-btn" (click)="openBeFollowerDialog()">
                         <img src="../../../../assets/icons/plusIcon.png" />
-                        Be A Follower
+                        {{'HOME.Be A Follower'|translate}}
                     </button>
                 </div>
             </div>
             <div class="stats d-flex justify-space-between align-center g-20">
                 <div class="stats-card">
-                    <h6>Monthly Fees</h6>
+                    <h6>{{'HOME.Monthly Fees' | translate}}</h6>
                     <h3>$ 120.00</h3>
-                    <p>September</p>
+                    <p>{{'COMMON.September' | translate}}</p>
                 </div>
                 <div class="stats-card">
-                    <h6>Followers</h6>
+                    <h6>{{'HOME.Followers' | translate}}</h6>
                     <h3>10</h3>
-                    <p>Active</p>
+                    <p>{{'COMMON.Active' | translate}}</p>
                 </div>
                 <div class="stats-card">
-                    <h6>Follower Growth</h6>
+                    <h6>{{'HOME.Followers Growth' | translate}}</h6>
                     <h3>0</h3>
-                    <p>September</p>
+                    <p>{{'COMMON.September' | translate}}</p>
                 </div>
                 <div class="stats-card">
-                    <h6>Closed profit (own)</h6>
+                    <h6>{{'HOME.Closed Profit (own)' | translate}}</h6>
                     <h3>$ 450.00</h3>
-                    <p>September</p>
+                    <p>{{'COMMON.September' | translate}}</p>
                 </div>
             </div>
 
             <div class="metrics-table">
                 <div class="header-title">
-                    <h5>Provider Metrics</h5>
-                    <p>Metrics of individual providers</p>
+                    <h5>{{'HOME.Provider Metrics' | translate}}</h5>
+                    <p>{{'HOME.Metrics of individual providers' | translate}}</p>
                 </div>
                 <div class="table">
                     <ag-grid-angular class="ag-theme-alpine" style="height: 400px" [rowData]="rowData"

@@ -20,6 +20,6 @@ export class ActionButtonComponent {
   }
 
   onActionClick() {
-    this.router.navigate([`/providers-profile/${this.params.data.id}`])
+    this.router.navigate([`/providers-profile/${this.params.data.Id}`])
   }
 }

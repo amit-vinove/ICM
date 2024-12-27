@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SubsProfileRendererComponent } from '../cellRenderers/subs-profile-renderer/subs-profile-renderer.component';
 import { OffersRendererComponent } from '../cellRenderers/offers-renderer/offers-renderer.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-provider-profile',
@@ -157,7 +158,7 @@ export class ProviderProfileComponent {
   selector: 'commongInfo-dialog',
   templateUrl: './dialogBoxes/commonInfoDialog.html',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule],
+  imports: [MatDialogModule, MatButtonModule, MatInputModule,MatSelectModule,TranslateModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogContentExampleDialog {}
