@@ -17,6 +17,7 @@ import { StrategyCellRendererComponent } from './cellRenderers/strategy-cell-ren
 import { RiskCellRendererComponent } from './cellRenderers/risk-cell-renderer/risk-cell-renderer.component';
 import { ChartCellRendererComponent } from './cellRenderers/chart-cell-renderer/chart-cell-renderer.component';
 import { ButtonCellRendererComponent } from './cellRenderers/button-cell-renderer/button-cell-renderer.component';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface User {
   name: string;
@@ -52,24 +53,9 @@ export class ProvidersListComponent {
 
   cards = Array(10).fill(0);
 
-  tabLabels = [
-    { name: 'featured', label: 'Featured' },
-    { name: 'bestPerformers', label: 'Best Performers' },
-    { name: 'cryptoKings', label: 'Crypto Kings' },
-    { name: 'highWinRatio', label: 'High Win Ratio' },
-    { name: 'highOwnFunds', label: 'High Own Funds' },
-    { name: 'lowRisk', label: 'Low Risk' },
-    { name: 'lowDrawdown', label: 'Low Drawdown' },
-    { name: 'lowFees', label: 'Low Fees' },
-    { name: 'mostPopular', label: 'Most Popular' },
-    { name: 'mostInvested', label: 'Most Invested' },
-    { name: 'watchlist', label: 'Watchlist' },
-    { name: 'all', label: 'All' },
-  ];
-
-
-
-  constructor(
+  tabLabels:any = [];
+  colDefs: ColDef[] = []
+  constructor(public translate: TranslateService
   ) {
     this.chartOptions = {
       series: [
@@ -188,7 +174,45 @@ export class ProvidersListComponent {
         return name ? this._filter(name as string) : this.options.slice();
       }),
     );
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+      this.initializeTabLabels()
+    });
+    this.initializeColDefs(); 
+    this.initializeTabLabels()
   }
+
+  initializeColDefs() {
+    this.colDefs = [
+      { field: "strategy", headerName: this.translate.instant('PROVIDERS_LIST.Title'), resizable: false, width:250,suppressSizeToFit: true ,cellRenderer: StrategyCellRendererComponent},
+      { field: "type", headerName: this.translate.instant('PROVIDERS_LIST.Type'), resizable: false,cellRenderer:TypeIconComponent,width:100 },
+      { field: "investors", headerName: this.translate.instant('PROVIDERS_LIST.Investors'), resizable: false ,width:150},
+      { field: "invested", headerName: this.translate.instant('PROVIDERS_LIST.Invested'), resizable: false,width:150 },
+      { field: "ownFunds", headerName: this.translate.instant('PROVIDERS_LIST.Own Funds'), resizable: false,width:150},
+      { field: "drawdown", headerName: this.translate.instant('PROVIDERS_LIST.Drawdown'), resizable: false,width:150 },
+      { field: "fee", headerName: this.translate.instant('PROVIDERS_LIST.Fee'), resizable: false,width:150 },
+      { field: "risk", headerName: this.translate.instant('PROVIDERS_LIST.Risk'), resizable: false ,cellRenderer:RiskCellRendererComponent,width:150},
+      { field: "chart", headerName: this.translate.instant('PROVIDERS_LIST.Chart'), resizable: false,cellRenderer:ChartCellRendererComponent ,width:200,headerClass:'chartHeader'},
+      { field: "action", headerName: '', resizable: false,cellRenderer:ButtonCellRendererComponent,width:150,cellStyle: {'padding-left':'40px'}, },
+    ];
+  }
+  initializeTabLabels() {
+    this.tabLabels = [
+      { name: 'featured', label: this.translate.instant('PROVIDERS_LIST.Featured') },
+      { name: 'bestPerformers', label: this.translate.instant('PROVIDERS_LIST.Best Performers') },
+      { name: 'cryptoKings', label: this.translate.instant('PROVIDERS_LIST.Crypto Kings') },
+      { name: 'highWinRatio', label: this.translate.instant('PROVIDERS_LIST.High Win Ratio') },
+      { name: 'highOwnFunds', label: this.translate.instant('PROVIDERS_LIST.High Own Funds') },
+      { name: 'lowRisk', label: this.translate.instant('PROVIDERS_LIST.Low Risk') },
+      { name: 'lowDrawdown', label: this.translate.instant('PROVIDERS_LIST.Low Drawdown') },
+      { name: 'lowFees', label: this.translate.instant('PROVIDERS_LIST.Low Fees') },
+      { name: 'mostPopular', label: this.translate.instant('PROVIDERS_LIST.Most Popular') },
+      { name: 'mostInvested', label: this.translate.instant('PROVIDERS_LIST.Most Invested') },
+      { name: 'watchlist', label: this.translate.instant('PROVIDERS_LIST.Watchlist') },
+      { name: 'all', label: this.translate.instant('PROVIDERS_LIST.All') },
+    ];
+  }
+  
 
   rowData = [
     {
@@ -278,18 +302,6 @@ export class ProvidersListComponent {
       chart: "Area",
       strategyIcon:'../../../../assets/icons/providerIcon6.png'
     },
-  ];
-  colDefs: ColDef[] = [
-    { field: "strategy", headerName: 'Strategy Name', resizable: false, width:250,suppressSizeToFit: true ,cellRenderer: StrategyCellRendererComponent},
-    { field: "type", headerName: 'Type', resizable: false,cellRenderer:TypeIconComponent,width:100 },
-    { field: "investors", headerName: 'Investors', resizable: false ,width:150},
-    { field: "invested", headerName: 'Invested', resizable: false,width:150 },
-    { field: "ownFunds", headerName: 'Own Funds', resizable: false,width:150},
-    { field: "drawdown", headerName: 'Drawdown', resizable: false,width:150 },
-    { field: "fee", headerName: 'Fee', resizable: false,width:150 },
-    { field: "risk", headerName: 'Risk', resizable: false ,cellRenderer:RiskCellRendererComponent,width:150},
-    { field: "chart", headerName: 'Chart', resizable: false,cellRenderer:ChartCellRendererComponent ,width:200,headerClass:'chartHeader'},
-    { field: "action", headerName: '', resizable: false,cellRenderer:ButtonCellRendererComponent,width:150,cellStyle: {'padding-left':'40px'}, },
   ];
 
   displayFn(user: User): string {

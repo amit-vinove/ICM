@@ -3,8 +3,8 @@
         <div class="home-card">
             <div class="header d-flex justify-space-between align-center">
                 <div class="header-title">
-                    <h5>Providers</h5>
-                    <p>List of providers</p>
+                    <h5>{{"PROVIDERS_LIST.Providers"|translate}}</h5>
+                    <p>{{"PROVIDERS_LIST.List of providers"|translate}}</p>
                 </div>
                 <div class="header-buttons">
                     <!-- <form class="search-provider-form">
@@ -25,12 +25,12 @@
                     <div class="providersList-header-buttons d-flex justify-space-between align-center pb-20">
                         <div class="d-flex justify-space-between g-10 align-center">
                             <div class="d-flex justify-space-between providerProfile-tabFilters g-10 align-center">
-                                <h5 class="active"> Any </h5>
-                                <h5> Forex </h5>
-                                <h5> Indices </h5>
-                                <h5> Crypto </h5>
-                                <h5> Algorithmic </h5>
-                                <h5> Commodities </h5>
+                                <h5 class="active"> {{"PROVIDERS_LIST.Any"|translate}} </h5>
+                                <h5> {{"PROVIDERS_LIST.Forex"|translate}} </h5>
+                                <h5> {{"PROVIDERS_LIST.Indices"|translate}} </h5>
+                                <h5> {{"PROVIDERS_LIST.Crypto"|translate}} </h5>
+                                <h5> {{"PROVIDERS_LIST.Algorithmic"|translate}} </h5>
+                                <h5> {{"PROVIDERS_LIST.Commodities"|translate}} </h5>
                             </div>
                             <div class="d-flex justify-center g-10 align-center">
                                 <!-- <button class="secondary-btn">
@@ -40,7 +40,7 @@
                                 <!-- <img src="../../../../assets/icons/searchIcon.svg" /> -->
                                     <mat-form-field class="search-provider-field" appearance="outline">
                                         <mat-icon color="secondary" matPrefix>search</mat-icon>
-                                        <mat-label>Search</mat-label>
+                                        <mat-label>{{"PROVIDERS_LIST.Search"|translate}}</mat-label>
                                         <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
                                         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                                             @for (option of filteredOptions | async; track option) {
@@ -58,7 +58,7 @@
                         </button>
                         <button class="secondary-btn">
                             <img src="../../../../assets/icons/filterIcon.svg" />
-                            More Filters
+                            {{"PROVIDERS_LIST.More Filters"|translate}}
                         </button>
                     </div>
                     <div class="providersList-section">
@@ -106,27 +106,27 @@
                                         </div>
                                         <div class="main-content d-flex align-center flex-wrap justify-space-between g-20">
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Fee</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Fee"|translate}}</p>
                                                 <p class="subtitle">50%</p>
                                             </div>
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Win Ratio</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Win Ratio"|translate}}</p>
                                                 <p class="subtitle">5.05</p>
                                             </div>
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Drawdown</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Drawdown"|translate}}</p>
                                                 <p class="subtitle">50%</p>
                                             </div>
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Investors</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Investors"|translate}}</p>
                                                 <p class="subtitle">1</p>
                                             </div>
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Invested</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Invested"|translate}}</p>
                                                 <p class="subtitle">$500</p>
                                             </div>
                                             <div class="text d-flex flex-column">
-                                                <p class="title">Own Funds</p>
+                                                <p class="title">{{"PROVIDERS_LIST.Own Funds"|translate}}</p>
                                                 <p class="subtitle">$2,209</p>
                                             </div>
                                         </div>
@@ -134,13 +134,13 @@
                                     <div class="footer">
                                         <div class="content d-flex justify-space-between align-center">
                                             <div class="badge d-flex justify-space-between g-10">
-                                                <p>Risk</p>
+                                                <p>{{"PROVIDERS_LIST.Risk"|translate}}</p>
                                                 <div class="badge-count">
                                                     <p>10</p>
                                                 </div>
                                             </div>
                                             <button class="edit-btn content-btn">
-                                                Copy
+                                                {{"PROVIDERS_LIST.Copy"|translate}}
                                             </button>
                                         </div>
                                     </div>
