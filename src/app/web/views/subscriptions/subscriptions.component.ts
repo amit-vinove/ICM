@@ -9,6 +9,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-subscriptions',
@@ -17,11 +18,42 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SubscriptionsComponent {
   subsId: string | null = null;
-  constructor(private route: ActivatedRoute) {}
+  SubsCols: ColDef[] = []
+  PositionsCols: ColDef[] = []
+
+  constructor(private route: ActivatedRoute,public translate: TranslateService) {}
 
   ngOnInit(): void {
     // Get route parameters (e.g., /sample/:id)
     this.subsId = this.route.snapshot.paramMap.get('profileId');
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+    });
+    this.initializeColDefs(); 
+  }
+
+  initializeColDefs() {
+    this.SubsCols = [
+      { field: "name", headerName: this.translate.instant('PROVIDERS_PROFILE.Nickname'), resizable: false, suppressSizeToFit: true, width: 180},
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "volumeScaling", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume Scaling'), resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "offer", headerName: this.translate.instant('PROVIDERS_PROFILE.Offer'), resizable: false, width: 150 },
+      { field: "tradingAccount", headerName: this.translate.instant('PROVIDERS_PROFILE.Trading Account'), resizable: false },
+      { field: "equity", headerName: this.translate.instant('PROVIDERS_PROFILE.Equity'), resizable: false, width: 120 },
+      { field: "registered", headerName: this.translate.instant('PROVIDERS_PROFILE.Registered'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
+  
+    this.PositionsCols = [
+      { field: "position", headerName: this.translate.instant('PROVIDERS_PROFILE.Position'), resizable: false, suppressSizeToFit: true, width: 180 },
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "symbol", headerName: this.translate.instant('PROVIDERS_PROFILE.Symbol'), width: 150, resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "openTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Open Time'), resizable: false, width: 180 },
+      { field: "volume", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume'), resizable: false },
+      { field: "profit", headerName: this.translate.instant('PROVIDERS_PROFILE.Profit'), resizable: false, width: 120 },
+      { field: "closeTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Close Time'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
   }
 
 
@@ -35,22 +67,6 @@ export class SubscriptionsComponent {
     { name: "Evan Thomas", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456717", equity: "$48.1", registered: "9/26/24, 8:16:35 AM"}
   ];
 
-  // Column Definitions: Defines the columns to be displayed.
-  SubsCols: ColDef[] = [
-    { field: "name" , headerName:'Name',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "volumeScaling" ,headerName:'Volume Scaling',resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "offer",headerName:'Offer' ,resizable: false ,width:150},
-    { field: "tradingAccount" , headerName:'Trading Account',resizable: false},
-    { field: "equity" , headerName:'Equity',resizable: false,width:120},
-    { field: "registered" , headerName:'Registered',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
   PositionsRows = [
     { position: "Buy", status: "Active", symbol: "AAPL", openTime: "9/16/24, 9:00 AM", volume: "10", profit: "$500", closeTime: "9/17/24, 4:00 PM" },
     { position: "Sell", status: "Inactive", symbol: "GOOGL", openTime: "9/18/24, 10:00 AM", volume: "5", profit: "$350", closeTime: "9/18/24, 4:30 PM" },
@@ -58,91 +74,6 @@ export class SubscriptionsComponent {
     { position: "Sell", status: "Inactive", symbol: "AMZN", openTime: "9/21/24, 12:00 PM", volume: "15", profit: "$700", closeTime: "9/21/24, 6:00 PM" },
     { position: "Buy", status: "Active", symbol: "MSFT", openTime: "9/23/24, 2:00 PM", volume: "12", profit: "$420", closeTime: "9/24/24, 3:30 PM" },
     { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "9/25/24, 4:00 PM", volume: "20", profit: "$600", closeTime: "9/26/24, 7:00 PM" }
-  ];
-
-  // Column Definitions: Defines the columns to be displayed.
-  PositionsCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
-
-  DealsRows = [
-    { position: "Buy", status: "Active", symbol: "AAPL", openTime: "10/10/24, 9:15 AM", volume: "15", profit: "$650", closeTime: "10/11/24, 4:00 PM" },
-    { position: "Sell", status: "Inactive", symbol: "GOOGL", openTime: "10/12/24, 10:30 AM", volume: "8", profit: "$280", closeTime: "10/12/24, 3:00 PM" },
-    { position: "Buy", status: "Active", symbol: "TSLA", openTime: "10/13/24, 11:45 AM", volume: "10", profit: "$750", closeTime: "10/14/24, 5:00 PM" },
-    { position: "Sell", status: "Inactive", symbol: "AMZN", openTime: "10/14/24, 1:00 PM", volume: "20", profit: "$900", closeTime: "10/14/24, 6:00 PM" },
-    { position: "Buy", status: "Active", symbol: "MSFT", openTime: "10/15/24, 2:30 PM", volume: "25", profit: "$1100", closeTime: "10/16/24, 3:45 PM" },
-    { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "10/16/24, 3:50 PM", volume: "12", profit: "$500", closeTime: "10/16/24, 7:00 PM" }
-  ];
-
-  // Column Definitions: Defines the columns to be displayed.
-  DealsCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
-
-  FeesRows = [
-    { position: "Buy", status: "Active", symbol: "AAPL", openTime: "10/01/24, 9:30 AM", volume: "12", profit: "$450", closeTime: "10/02/24, 4:30 PM" },
-    { position: "Sell", status: "Inactive", symbol: "GOOGL", openTime: "10/03/24, 10:00 AM", volume: "7", profit: "$380", closeTime: "10/03/24, 3:45 PM" },
-    { position: "Buy", status: "Active", symbol: "TSLA", openTime: "10/04/24, 11:30 AM", volume: "9", profit: "$560", closeTime: "10/05/24, 5:15 PM" },
-    { position: "Sell", status: "Inactive", symbol: "AMZN", openTime: "10/06/24, 1:45 PM", volume: "16", profit: "$800", closeTime: "10/06/24, 6:30 PM" },
-    { position: "Buy", status: "Active", symbol: "MSFT", openTime: "10/07/24, 2:00 PM", volume: "18", profit: "$930", closeTime: "10/08/24, 4:00 PM" },
-    { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "10/09/24, 3:15 PM", volume: "22", profit: "$610", closeTime: "10/09/24, 7:45 PM" }
-  ];
-
-  // Column Definitions: Defines the columns to be displayed.
-  FeesCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
-
-  OffersRows =   [
-    { Id:1, title: "Test Offer", visibility: "Public", subscriptions: 'Count: 1', joinLinks: "Count: 1" },
-  ]
-
-  OffersCols: ColDef[] = [
-    { field: "title" , headerName:'Title',resizable: false ,width: 200},
-    { field: "visibility" , headerName : 'Visibility',resizable: false,width: 200, cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "subscriptions" ,headerName:'Subscriptions',resizable: false,width: 200},
-    { field: "joinLinks",headerName:'Join Links' ,resizable: false,width: 150 },
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent,flex:1
-    },
   ];
 
 }

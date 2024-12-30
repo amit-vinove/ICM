@@ -5,6 +5,7 @@ import { ActionButtonComponent } from '../../shared/action-button/action-button.
 import { NicknameRendererComponent } from '../providers/cellRenderers/nickname-renderer/nickname-renderer.component';
 import { DateAdapter } from '@angular/material/core';
 import { MatDateRangePicker } from '@angular/material/datepicker';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface User {
   name: string;
@@ -38,8 +39,20 @@ export class ReportsComponent {
   tradingStartDate!: Date;
   tradingEndDate!: Date;
 
-  constructor(private dateAdapter: DateAdapter<Date>) {
+  providersReportsCol: ColDef[] = []
+  offersReportsCol: ColDef[] = []
+  recivedFeesCol: ColDef[] = []
+  publishedCol: ColDef[] = []
+
+  constructor(private dateAdapter: DateAdapter<Date>,public translate: TranslateService) {
     this.setLast7Days();
+  }
+
+  ngOnInit(): void {
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+    });
+    this.initializeColDefs(); 
   }
 
 
@@ -53,27 +66,29 @@ export class ReportsComponent {
     { Id:7,nickname: "Evan Thomas", title:'Amit Test',tradingAccount: "11003456717", strategyMode: 'All', amount: "$48.1", registered: "9/26/24, 8:16:35 AM" ,actionUrl:"/providers-profile/"}
   ]
 
-  providersReportsCol: ColDef[] = [
-    { field: "nickname" , headerName:'Nickname',resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
-    { field: "amount" , headerName : 'Amount',resizable: false,flex:1},
-  ];
-
-  offersReportsCol: ColDef[] = [
-    { field: "title" , headerName : 'Title',resizable: false,flex:1},
-    { field: "nickname" , headerName:'Nickname',resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
-    { field: "amount" ,headerName:'Amount',resizable: false,flex:1},
-  ];
-
-  recivedFeesCol: ColDef[] = [
-    { field: "title" , headerName:'Name',resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
-    { field: "amount" , headerName : 'Fees',resizable: false,flex:1},
-    { field: "amount" ,headerName:'Amount',resizable: false,flex:1},
-  ];
-
-  publishedCol: ColDef[] = [
-    { field: "nickname" , headerName:'Nickname',resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
-    { field: "amount" , headerName : 'Count',resizable: false,flex:1},
-  ];
+  initializeColDefs() {
+    this.providersReportsCol=[
+      { field: "nickname" , headerName:this.translate.instant('REPORTS.Nickname'),resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
+      { field: "amount" , headerName : this.translate.instant('REPORTS.Amount'),resizable: false,flex:1},
+    ];
+  
+    this.offersReportsCol = [
+      { field: "title" , headerName : this.translate.instant('REPORTS.Title'),resizable: false,flex:1},
+      { field: "nickname" , headerName:this.translate.instant('REPORTS.Nickname'),resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
+      { field: "amount" ,headerName:this.translate.instant('REPORTS.Amount'),resizable: false,flex:1},
+    ];
+  
+    this.recivedFeesCol = [
+      { field: "title" , headerName:this.translate.instant('REPORTS.Name'),resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
+      { field: "amount" , headerName : this.translate.instant('REPORTS.Fees'),resizable: false,flex:1},
+      { field: "amount" ,headerName:this.translate.instant('REPORTS.Amount'),resizable: false,flex:1},
+    ];
+  
+    this.publishedCol = [
+      { field: "nickname" , headerName:this.translate.instant('REPORTS.Nickname'),resizable: false , suppressSizeToFit: true,cellRenderer: NicknameRendererComponent,flex:1},
+      { field: "amount" , headerName : this.translate.instant('REPORTS.Count'),resizable: false,flex:1},
+    ];
+  }
 
   setLast7Days() {
     const today = new Date();

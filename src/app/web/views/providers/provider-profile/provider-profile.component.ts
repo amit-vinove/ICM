@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SubsProfileRendererComponent } from '../cellRenderers/subs-profile-renderer/subs-profile-renderer.component';
 import { OffersRendererComponent } from '../cellRenderers/offers-renderer/offers-renderer.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-provider-profile',
@@ -20,6 +20,76 @@ import { TranslateModule } from '@ngx-translate/core';
 export class ProviderProfileComponent {
 
   readonly commonInfoDialog = inject(MatDialog);
+  SubsCols: ColDef[] = []
+  PositionsCols: ColDef[] = []
+  DealsCols: ColDef[] = []
+  FeesCols: ColDef[] = []
+  OffersCols:ColDef[]=[]
+
+  constructor(public translate: TranslateService) {}
+
+  ngOnInit() {
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+    });
+    this.initializeColDefs(); // Initialize on component load
+  }
+
+
+  initializeColDefs() {
+    this.SubsCols = [
+      { field: "name", headerName: this.translate.instant('PROVIDERS_PROFILE.Nickname'), resizable: false, suppressSizeToFit: true, width: 180, cellRenderer: SubsProfileRendererComponent },
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "volumeScaling", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume Scaling'), resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "offer", headerName: this.translate.instant('PROVIDERS_PROFILE.Offer'), resizable: false, width: 150 },
+      { field: "tradingAccount", headerName: this.translate.instant('PROVIDERS_PROFILE.Trading Account'), resizable: false },
+      { field: "equity", headerName: this.translate.instant('PROVIDERS_PROFILE.Equity'), resizable: false, width: 120 },
+      { field: "registered", headerName: this.translate.instant('PROVIDERS_PROFILE.Registered'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
+  
+    this.PositionsCols = [
+      { field: "position", headerName: this.translate.instant('PROVIDERS_PROFILE.Position'), resizable: false, suppressSizeToFit: true, width: 180 },
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "symbol", headerName: this.translate.instant('PROVIDERS_PROFILE.Symbol'), width: 150, resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "openTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Open Time'), resizable: false, width: 180 },
+      { field: "volume", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume'), resizable: false },
+      { field: "profit", headerName: this.translate.instant('PROVIDERS_PROFILE.Profit'), resizable: false, width: 120 },
+      { field: "closeTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Close Time'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
+  
+    this.DealsCols = [
+      { field: "position", headerName: this.translate.instant('PROVIDERS_PROFILE.Position'), resizable: false, suppressSizeToFit: true, width: 180 },
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "symbol", headerName: this.translate.instant('PROVIDERS_PROFILE.Symbol'), width: 150, resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "openTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Open Time'), resizable: false, width: 180 },
+      { field: "volume", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume'), resizable: false },
+      { field: "profit", headerName: this.translate.instant('PROVIDERS_PROFILE.Profit'), resizable: false, width: 120 },
+      { field: "closeTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Close Time'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
+  
+    this.FeesCols = [
+      { field: "position", headerName: this.translate.instant('PROVIDERS_PROFILE.Position'), resizable: false, suppressSizeToFit: true, width: 180 },
+      { field: "status", headerName: this.translate.instant('COMMON.Status'), width: 100, resizable: false, cellRenderer: StatusBtnRendererComponent, cellStyle: { display: 'flex', 'justify-content': 'center', 'align-items': 'center' }, headerClass: 'subs-status-header' },
+      { field: "symbol", headerName: this.translate.instant('PROVIDERS_PROFILE.Symbol'), width: 150, resizable: false, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "openTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Open Time'), resizable: false, width: 180 },
+      { field: "volume", headerName: this.translate.instant('PROVIDERS_PROFILE.Volume'), resizable: false },
+      { field: "profit", headerName: this.translate.instant('PROVIDERS_PROFILE.Profit'), resizable: false, width: 120 },
+      { field: "closeTime", headerName: this.translate.instant('PROVIDERS_PROFILE.Close Time'), resizable: false, width: 200 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent },
+    ];
+  
+    this.OffersCols = [
+      { field: "title", headerName: this.translate.instant('PROVIDERS_PROFILE.Offer'), resizable: false, width: 200, cellRenderer: OffersRendererComponent },
+      { field: "visibility", headerName: this.translate.instant('PROVIDERS_PROFILE.Visibility'), resizable: false, width: 200, cellRenderer: TypeCellRenderer, cellStyle: { display: 'flex', 'justify-content': 'center', 'flex-direction': 'column' } },
+      { field: "subscriptions", headerName: this.translate.instant('PROVIDERS_PROFILE.Subscriptions'), resizable: false, width: 200 },
+      { field: "joinLinks", headerName: this.translate.instant('PROVIDERS_PROFILE.Join Links'), resizable: false, width: 150 },
+      { field: "actions", headerName: "", cellRenderer: ActionButtonComponent, flex: 1 },
+    ];
+  }
+  
 
 
   SubsRows = [
@@ -32,22 +102,6 @@ export class ProviderProfileComponent {
     { Id:7,name: "Evan Thomas", status: "Active", volumeScaling: "Multiply", offer: "Test Offer", tradingAccount: "11003456717", equity: "$48.1", registered: "9/26/24, 8:16:35 AM"}
   ];
 
-  // Column Definitions: Defines the columns to be displayed.
-  SubsCols: ColDef[] = [
-    { field: "name" , headerName:'Name',resizable: false , suppressSizeToFit: true ,width:180,cellRenderer:SubsProfileRendererComponent},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "volumeScaling" ,headerName:'Volume Scaling',resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "offer",headerName:'Offer' ,resizable: false ,width:150},
-    { field: "tradingAccount" , headerName:'Trading Account',resizable: false},
-    { field: "equity" , headerName:'Equity',resizable: false,width:120},
-    { field: "registered" , headerName:'Registered',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
   PositionsRows = [
     { position: "Buy", status: "Active", symbol: "AAPL", openTime: "9/16/24, 9:00 AM", volume: "10", profit: "$500", closeTime: "9/17/24, 4:00 PM" },
     { position: "Sell", status: "Inactive", symbol: "GOOGL", openTime: "9/18/24, 10:00 AM", volume: "5", profit: "$350", closeTime: "9/18/24, 4:30 PM" },
@@ -56,23 +110,6 @@ export class ProviderProfileComponent {
     { position: "Buy", status: "Active", symbol: "MSFT", openTime: "9/23/24, 2:00 PM", volume: "12", profit: "$420", closeTime: "9/24/24, 3:30 PM" },
     { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "9/25/24, 4:00 PM", volume: "20", profit: "$600", closeTime: "9/26/24, 7:00 PM" }
   ];
-
-  // Column Definitions: Defines the columns to be displayed.
-  PositionsCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
 
   DealsRows = [
     { position: "Buy", status: "Active", symbol: "AAPL", openTime: "10/10/24, 9:15 AM", volume: "15", profit: "$650", closeTime: "10/11/24, 4:00 PM" },
@@ -83,23 +120,6 @@ export class ProviderProfileComponent {
     { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "10/16/24, 3:50 PM", volume: "12", profit: "$500", closeTime: "10/16/24, 7:00 PM" }
   ];
 
-  // Column Definitions: Defines the columns to be displayed.
-  DealsCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
-
   FeesRows = [
     { position: "Buy", status: "Active", symbol: "AAPL", openTime: "10/01/24, 9:30 AM", volume: "12", profit: "$450", closeTime: "10/02/24, 4:30 PM" },
     { position: "Sell", status: "Inactive", symbol: "GOOGL", openTime: "10/03/24, 10:00 AM", volume: "7", profit: "$380", closeTime: "10/03/24, 3:45 PM" },
@@ -109,38 +129,9 @@ export class ProviderProfileComponent {
     { position: "Sell", status: "Inactive", symbol: "NFLX", openTime: "10/09/24, 3:15 PM", volume: "22", profit: "$610", closeTime: "10/09/24, 7:45 PM" }
   ];
 
-  // Column Definitions: Defines the columns to be displayed.
-  FeesCols: ColDef[] = [
-    { field: "position" , headerName:'Positions',resizable: false , suppressSizeToFit: true ,width:180},
-    { field: "status" , headerName : 'Status',width:100,resizable: false,cellRenderer:StatusBtnRendererComponent ,cellStyle: {display: 'flex', 'justify-content': 'center','align-items':'center'},headerClass: 'subs-status-header'},
-    { field: "symbol" ,headerName:'Symbol',width:150,resizable: false,cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "openTime",headerName:'Open Time' ,resizable: false ,width:180},
-    { field: "volume" , headerName:'Volume',resizable: false},
-    { field: "profit" , headerName:'Profit',resizable: false,width:120},
-    { field: "closeTime" , headerName:'Close Time',resizable: false,width:200},
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent
-    },
-  ];
-
-
   OffersRows =   [
     { Id:1, title: "Test Offer", visibility: "Public", subscriptions: 'Count: 1', joinLinks: "Count: 1" },
   ]
-
-  OffersCols: ColDef[] = [
-    { field: "title" , headerName:'Title',resizable: false ,width: 200,cellRenderer:OffersRendererComponent},
-    { field: "visibility" , headerName : 'Visibility',resizable: false,width: 200, cellRenderer:TypeCellRenderer,cellStyle: {display: 'flex', 'justify-content': 'center','flex-direction':'column'}},
-    { field: "subscriptions" ,headerName:'Subscriptions',resizable: false,width: 200},
-    { field: "joinLinks",headerName:'Join Links' ,resizable: false,width: 150 },
-    {
-      field: "actions",
-      headerName: "",
-      cellRenderer: ActionButtonComponent,flex:1
-    },
-  ];
 
   openCommonInfoDialog(){
     const dialogRef = this.commonInfoDialog.open(DialogContentExampleDialog,{

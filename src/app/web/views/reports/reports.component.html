@@ -3,8 +3,8 @@
         <div class="home-card">
             <div class="header d-flex justify-space-between align-center">
                 <div class="header-title">
-                    <h5>Reports</h5>
-                    <p>Different kinds of reports</p>
+                    <h5>{{"REPORTS.Reports"|translate}}</h5>
+                    <p>{{"REPORTS.Different kinds of reports"|translate}}</p>
                 </div>
             </div>
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="providerProfile-tabGroup">
@@ -12,8 +12,8 @@
                     <div class="providers-list">
                         <div class="header d-flex justify-space-between align-center pb-20">
                             <div class="header-subtitle">
-                                <h5>Providers Report</h5>
-                                <p>Report on earnings of providers</p>
+                                <h5>{{"REPORTS.Providers Report"|translate}}</h5>
+                                <p>{{"REPORTS.Report on earnings of providers"|translate}}</p>
                             </div>
                         </div>
                         <div class="header-buttons d-flex justify-space-between align-center ">
@@ -22,11 +22,11 @@
                                   {{providersSelectedDateRange}}
                                 </button>
                                 <mat-menu #providersDateActions="matMenu" class="dateActions-menu">
-                                  <button mat-menu-item (click)="selectProviderDateRange('Last month')">Last month</button>
-                                  <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">Last 7 days</button>
-                                  <button mat-menu-item (click)="selectProviderDateRange('Current month')">Current month</button>
-                                  <button mat-menu-item (click)="selectProviderDateRange('Today')">Today</button>
-                                  <button mat-menu-item (click)="selectProviderDateRange('Custom')">Custom</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Last month')">{{"REPORTS.Last month"|translate}}</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">{{"REPORTS.Last 7 days"|translate}}</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Current month')">{{"REPORTS.Current month"|translate}}</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Today')">{{"REPORTS.Today"|translate}}</button>
+                                  <button mat-menu-item (click)="selectProviderDateRange('Custom')">{{"REPORTS.Custom"|translate}}</button>
                                 </mat-menu>    
                                 <div style="font-size: 12px;">
                                   <mat-form-field class="reports-datepicker-filter" (click)="providerRangePicker.open()">
@@ -43,7 +43,7 @@
                                 <div class="d-flex justify-center g-10 align-baseline">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotateIcon.svg" />
-                                        Refresh
+                                        {{"COMMON.Refresh"|translate}}
                                     </button>
                                 </div>
                             </div>
@@ -60,8 +60,8 @@
                     <div class="offers-list">
                         <div class="header d-flex justify-space-between align-center pb-20">
                             <div class="header-subtitle">
-                                <h5>Offers Report</h5>
-                                <p>Report on earnings of providers per offer</p>
+                                <h5>{{"REPORTS.Offers Report"|translate}}</h5>
+                                <p>{{"REPORTS.Report on earnings of providers per offer"|translate}}</p>
                             </div>
                         </div>
                         <div class="header-buttons d-flex justify-space-between align-center ">
@@ -70,11 +70,11 @@
                                   {{ offersSelectedDateRange }}
                                 </button>
                                 <mat-menu #offersDateActions="matMenu" class="dateActions-menu">
-                                  <button mat-menu-item (click)="selectOffersDateRange('Last month')">Last month</button>
-                                  <button mat-menu-item (click)="selectOffersDateRange('Last 7 days')">Last 7 days</button>
-                                  <button mat-menu-item (click)="selectOffersDateRange('Current month')">Current month</button>
-                                  <button mat-menu-item (click)="selectOffersDateRange('Today')">Today</button>
-                                  <button mat-menu-item (click)="selectOffersDateRange('Custom')">Custom</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last month')">{{"REPORTS.Last month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">{{"REPORTS.Last 7 days"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Current month')">{{"REPORTS.Current month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Today')">{{"REPORTS.Today"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Custom')">{{"REPORTS.Custom"|translate}}</button>
                                 </mat-menu>    
                                 <div style="font-size: 12px;">
                                   <mat-form-field class="reports-datepicker-filter" (click)="offersRangePicker.open()">
@@ -91,7 +91,7 @@
                                 <div class="d-flex justify-center g-10 align-baseline">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotateIcon.svg" />
-                                        Refresh
+                                        {{"COMMON.Refresh"|translate}}
                                     </button>
                                 </div>
                             </div>
@@ -109,8 +109,8 @@
                     <div class="providers-list">
                         <div class="header d-flex justify-space-between align-center pb-20">
                             <div class="header-subtitle">
-                                <h5>Received fees</h5>
-                                <p>The list of fee payments received by your providers during the specified period</p>
+                                <h5>{{"REPORTS.Received fees"|translate}}</h5>
+                                <p>{{"REPORTS.The list of fee payments received by your providers during the specified period"|translate}}</p>
                             </div>
                         </div>
                         <div class="header-buttons d-flex justify-space-between align-center ">
@@ -119,11 +119,11 @@
                                   {{ feesSelectedDateRange }}
                                 </button>
                                 <mat-menu #feeDateActions="matMenu" class="dateActions-menu">
-                                  <button mat-menu-item (click)="selectFeesDateRange('Last month')">Last month</button>
-                                  <button mat-menu-item (click)="selectFeesDateRange('Last 7 days')">Last 7 days</button>
-                                  <button mat-menu-item (click)="selectFeesDateRange('Current month')">Current month</button>
-                                  <button mat-menu-item (click)="selectFeesDateRange('Today')">Today</button>
-                                  <button mat-menu-item (click)="selectFeesDateRange('Custom')">Custom</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last month')">{{"REPORTS.Last month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">{{"REPORTS.Last 7 days"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Current month')">{{"REPORTS.Current month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Today')">{{"REPORTS.Today"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Custom')">{{"REPORTS.Custom"|translate}}</button>
                                 </mat-menu>    
                                 <div style="font-size: 12px;">
                                   <mat-form-field class="reports-datepicker-filter" (click)="feesRangePicker.open()">
@@ -140,7 +140,7 @@
                                 <div class="d-flex justify-center g-10 align-baseline">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotateIcon.svg" />
-                                        Refresh
+                                        {{"COMMON.Refresh"|translate}}
                                     </button>
                                 </div>
                             </div>
@@ -158,8 +158,8 @@
                     <div class="providers-list">
                         <div class="header d-flex justify-space-between align-center pb-20">
                             <div class="header-subtitle">
-                                <h5>Published Positions Report</h5>
-                                <p>Report on positions published by providers</p>
+                                <h5>{{"REPORTS.Published Positions Report"|translate}}</h5>
+                                <p>{{"REPORTS.Report on positions published by providers"|translate}}</p>
                             </div>
                         </div>
                         <div class="header-buttons d-flex justify-space-between align-center ">
@@ -168,11 +168,11 @@
                                   {{ tradingSelectedDateRange }}
                                 </button>
                                 <mat-menu #tradingDateActions="matMenu" class="dateActions-menu">
-                                  <button mat-menu-item (click)="selectTradingDateRange('Last month')">Last month</button>
-                                  <button mat-menu-item (click)="selectTradingDateRange('Last 7 days')">Last 7 days</button>
-                                  <button mat-menu-item (click)="selectTradingDateRange('Current month')">Current month</button>
-                                  <button mat-menu-item (click)="selectTradingDateRange('Today')">Today</button>
-                                  <button mat-menu-item (click)="selectTradingDateRange('Custom')">Custom</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last month')">{{"REPORTS.Last month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Last 7 days')">{{"REPORTS.Last 7 days"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Current month')">{{"REPORTS.Current month"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Today')">{{"REPORTS.Today"|translate}}</button>
+                                    <button mat-menu-item (click)="selectProviderDateRange('Custom')">{{"REPORTS.Custom"|translate}}</button>
                                 </mat-menu>    
                                 <div style="font-size: 12px;">
                                   <mat-form-field class="reports-datepicker-filter" (click)="tradingRangePicker.open()">
@@ -188,7 +188,7 @@
                                 <div class="d-flex justify-center g-10 align-baseline">
                                     <button class="secondary-btn">
                                         <img src="../../../../assets/icons/rotateIcon.svg" />
-                                        Refresh
+                                        {{"COMMON.Refresh"|translate}}
                                     </button>
                                 </div>
                             </div>
