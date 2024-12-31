@@ -15,6 +15,7 @@ import {
 import { Observable } from 'rxjs';
 import { SymbolCellRendererComponent } from '../cellRenderers/symbol-cell-renderer/symbol-cell-renderer.component';
 import { ProviderListProfileTypeCellRendererComponent } from '../cellRenderers/provider-list-profile-type-cell-renderer/provider-list-profile-type-cell-renderer.component';
+import { TranslateService } from '@ngx-translate/core';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -56,7 +57,10 @@ export class ProviderListProfileComponent {
   options: User[] = [{ name: 'Mary' }, { name: 'Shelley' }, { name: 'Igor' }];
   filteredOptions!: Observable<User[]>;
 
-  constructor(
+  colDefs: ColDef[] = []
+
+
+  constructor(public translate: TranslateService
   ) {
     this.barChartOptions = {
       series: [84, 80, 67],
@@ -686,6 +690,13 @@ export class ProviderListProfileComponent {
     };
   }
 
+  ngOnInit(): void {
+    this.translate.onLangChange.subscribe(() => {
+      this.initializeColDefs();
+    });
+    this.initializeColDefs(); 
+  }
+
   rowData = [
     {
       id: 1,
@@ -773,16 +784,18 @@ export class ProviderListProfileComponent {
     },
   ];
 
-  colDefs: ColDef[] = [
-    { field: "symbol", headerName: 'Symbol', resizable: false, width: 250, suppressSizeToFit: true, cellRenderer: SymbolCellRendererComponent },
-    { field: "type", headerName: 'Type', resizable: false, cellRenderer: ProviderListProfileTypeCellRendererComponent, width: 100 },
-    { field: "assetType", headerName: 'Asset Type', resizable: false, width: 150 },
-    { field: "contractSize", headerName: 'Contract Size', resizable: false, width: 150 },
-    { field: "volume", headerName: 'Volume', resizable: false, width: 150 },
-    { field: "openPrice", headerName: 'Open Price', resizable: false, width: 150 },
-    { field: "openTime", headerName: 'Open Time', resizable: false, width: 200 },
-    { field: "profit", headerName: 'Profit', resizable: false, width: 150, cellStyle: { color: '#12B76A' } },
-  ];
+  initializeColDefs() {
+    this.colDefs=[
+      { field: "symbol", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Symbol'), resizable: false, width: 250, suppressSizeToFit: true, cellRenderer: SymbolCellRendererComponent },
+      { field: "type", headerName:this.translate.instant('PROVIDERS_LIST_PROFILE.Type'), resizable: false, cellRenderer: ProviderListProfileTypeCellRendererComponent, width: 100 },
+      { field: "assetType", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Asset Type'), resizable: false, width: 150 },
+      { field: "contractSize", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Contract Size'), resizable: false, width: 150 },
+      { field: "volume", headerName:this.translate.instant('PROVIDERS_LIST_PROFILE.Volume'), resizable: false, width: 150 },
+      { field: "openPrice", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Open Price'), resizable: false, width: 150 },
+      { field: "openTime", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Open Time'), resizable: false, width: 200 },
+      { field: "profit", headerName: this.translate.instant('PROVIDERS_LIST_PROFILE.Profit'), resizable: false, width: 150, cellStyle: { color: '#12B76A' } },
+    ];
+  }
 
 
   displayFn(user: User): string {

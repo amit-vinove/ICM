@@ -2,7 +2,7 @@
     <mat-card-content class="section-card-content">
         <div class="pb-20 d-flex justify-start">
             <a [routerLink]="'/providersList'" style="text-decoration: none;">
-                <button class="secondary-btn"> <img src="../../../../../assets/icons/arrow-left.svg" />Back</button>
+                <button class="secondary-btn"> <img src="../../../../../assets/icons/arrow-left.svg" />{{"COMMON.Back"|translate}}</button>
             </a>
         </div>
         <div class="profile-header-card">
@@ -14,35 +14,35 @@
                         <p class="sub-heading">&#64;catalogapp.io</p>
                     </div>
                 </div>
-                <button class="primary-btn">Copy Strategy</button>
+                <button class="primary-btn">{{"PROVIDERS_LIST_PROFILE.Copy Strategy" |translate}}</button>
             </div>
             <div class="mid-area d-flex justify-space-between align-center pb-10">
                 <div>
-                    <p>Manager Bio</p>
+                    <p>{{"PROVIDERS_LIST_PROFILE.Manager Bio"|translate}}</p>
                     <p class="sub-heading">The Strategy Manager hasn’t provided a BIO</p>
                 </div>
                 <div class="values d-flex justify-space-between align-center g-20">
                     <div>
-                        <p>Leverage</p>
+                        <p>{{"PROVIDERS_LIST_PROFILE.Leverage"|translate}}</p>
                         <p class="sub-heading">500</p>
                     </div>
                     <div>
-                        <p>Fees</p>
+                        <p>{{"PROVIDERS_LIST_PROFILE.Fees"|translate}}</p>
                         <p class="sub-heading">50%</p>
                     </div>
                     <div>
-                        <p>Min. Investment</p>
+                        <p>{{"PROVIDERS_LIST_PROFILE.Min. Investment"|translate}}</p>
                         <p class="sub-heading">$500</p>
                     </div>
                     <div>
-                        <p>Invested</p>
+                        <p>{{"PROVIDERS_LIST_PROFILE.Invested"|translate}}</p>
                         <p class="sub-heading">$500</p>
                     </div>
                 </div>
             </div>
             <div class="desc-area d-flex justify-space-between align-center pb-10">
                 <div>
-                    <p>Description</p>
+                    <p>{{"PROVIDERS_LIST_PROFILE.Description"|translate}}</p>
                     <p class="sub-heading">Permanent little.</p>
                 </div>
                 <div class="values d-flex justify-space-between align-center g-20">
@@ -58,12 +58,12 @@
         <div class="pb-20 d-flex justify-space-between g-20">
             <div class="assets-card">
                 <div class="d-flex justify-space-between align-center px-20">
-                    <h6>Asset Allocation</h6>
+                    <h6>{{"PROVIDERS_LIST_PROFILE.Asset Allocation"|translate}}</h6>
                     <div class="assets-badge">
                         <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
                             [hideSingleSelectionIndicator]="true">
-                            <mat-button-toggle value="open" [checked]="true">Open</mat-button-toggle>
-                            <mat-button-toggle value="closed">Closed</mat-button-toggle>
+                            <mat-button-toggle value="open" [checked]="true">{{"PROVIDERS_LIST_PROFILE.Open"|translate}}</mat-button-toggle>
+                            <mat-button-toggle value="closed">{{"PROVIDERS_LIST_PROFILE.Closed"|translate}}</mat-button-toggle>
                         </mat-button-toggle-group>
                     </div>
                 </div>
@@ -81,13 +81,13 @@
             </div>
             <div class="returns-card">
                 <div class="d-flex justify-space-between align-center px-20">
-                    <h6>Return & Investment</h6>
+                    <h6>{{"PROVIDERS_LIST_PROFILE.Return & Investment"|translate}}</h6>
                     <div class="assets-badge">
                         <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
                             [hideSingleSelectionIndicator]="true">
-                            <mat-button-toggle value="open" [checked]="true">Returns</mat-button-toggle>
-                            <mat-button-toggle value="closed">Investors</mat-button-toggle>
-                            <mat-button-toggle value="closed">Invested</mat-button-toggle>
+                            <mat-button-toggle value="open" [checked]="true">{{"PROVIDERS_LIST_PROFILE.Returns"|translate}}</mat-button-toggle>
+                            <mat-button-toggle value="closed">{{"PROVIDERS_LIST_PROFILE.Investors"|translate}}</mat-button-toggle>
+                            <mat-button-toggle value="closed">{{"PROVIDERS_LIST_PROFILE.Invested"|translate}}</mat-button-toggle>
                         </mat-button-toggle-group>
                     </div>
                 </div>
@@ -110,22 +110,22 @@
                         <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
                             [hideSingleSelectionIndicator]="true">
                             <mat-button-toggle value="open" [checked]="performanceToggle == 'performance'"
-                                (click)="togglePerformance('performance')">Performance</mat-button-toggle>
+                                (click)="togglePerformance('performance')">{{"PROVIDERS_LIST_PROFILE.Performance"|translate}}</mat-button-toggle>
                             <mat-button-toggle value="closed" [checked]="performanceToggle == 'risk'"
-                                (click)="togglePerformance('risk')">Risk</mat-button-toggle>
+                                (click)="togglePerformance('risk')">{{"PROVIDERS_LIST_PROFILE.Risk"|translate}}</mat-button-toggle>
                             <mat-button-toggle value="closed" [checked]="performanceToggle == 'portfolio'"
-                                (click)="togglePerformance('portfolio')">Portfolio</mat-button-toggle>
+                                (click)="togglePerformance('portfolio')">{{"PROVIDERS_LIST_PROFILE.Portfolio"|translate}}</mat-button-toggle>
                         </mat-button-toggle-group>
                     </div>
                 </div>
                 <div class="performance-tab" *ngIf="performanceToggle == 'performance'">
                     <div class="d-flex justify-space-between align-center pb-20">
-                        <h6>Performance</h6>
+                        <h6>{{"PROVIDERS_LIST_PROFILE.Performance"|translate}}</h6>
                         <mat-form-field class="filter-opts" appearance="outline">
                             <mat-label>1 Day: 0.41%</mat-label>
                             <mat-select>
-                                <mat-option value="active">Active</mat-option>
-                                <mat-option value="all">All</mat-option>
+                                <mat-option value="active">{{"COMMON.Active"|translate}}</mat-option>
+                                <mat-option value="all">{{"COMMON.All"|translate}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -152,21 +152,21 @@
                                 [states]="pieChartOptions.states"></apx-chart>
                             <div class="pieChart-value d-flex justify-space-between align-center pb-10">
                                 <div>
-                                    <p>Trade Won</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Trade Won"|translate}}</p>
                                     <p class="positive">101/83%</p>
                                 </div>
                                 <div>
-                                    <p>Trade Lost</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Trade Lost"|translate}}</p>
                                     <p class="negative">20/17%</p>
                                 </div>
                             </div>
                             <div class="pieChart-value d-flex justify-space-between align-center pb-10">
                                 <div>
-                                    <p>Best Trade</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Best Trade"|translate}}</p>
                                     <p class="positive">238.37</p>
                                 </div>
                                 <div>
-                                    <p>Trade Lost</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Trade Lost"|translate}}</p>
                                     <p class="negative">339.47</p>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                 <div class="risk-tab" *ngIf="performanceToggle == 'risk'">
                     <div class="d-flex justify-space-between align-center g-20 pb-20">
                         <div class="trading-card">
-                            <h6>Trading Frequency</h6>
+                            <h6>{{"PROVIDERS_LIST_PROFILE.Trading Frequency"|translate}}</h6>
                             <apx-chart [series]="riskStackedChartOptions.series" [chart]="riskStackedChartOptions.chart"
                                 [xaxis]="riskStackedChartOptions.xaxis" [tooltip]="riskStackedChartOptions.tooltip"
                                 [yaxis]="riskStackedChartOptions.yaxis" [grid]="riskStackedChartOptions.grid"
@@ -188,9 +188,9 @@
                         </div>
                         <div class="strategy-card">
                             <div class="d-flex justify-space-between">
-                                <h6>Strategy Stats</h6>
+                                <h6>{{"PROVIDERS_LIST_PROFILE.Strategy Stats"|translate}}</h6>
                                 <div class="badge d-flex justify-space-between g-10">
-                                    <p>Risk</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Risk"|translate}}</p>
                                     <div class="badge-count">
                                         <p>10</p>
                                     </div>
@@ -198,31 +198,31 @@
                             </div>
                             <div class="strategy-value d-flex justify-space-between align-center pb-10">
                                 <div>
-                                    <p>Avg. Profit Per Trade</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Avg. Profit Per Trade"|translate}}</p>
                                     <p class="positive">$33.67</p>
                                 </div>
                                 <div>
-                                    <p>Avg. Loss Per Trade</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Avg. Loss Per Trade"|translate}}</p>
                                     <p class="negative">-$77.28</p>
                                 </div>
                             </div>
                             <div class="strategy-value d-flex justify-space-between align-center pb-10">
                                 <div>
-                                    <p>Trade Avg. Duration</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Trade Avg. Duration"|translate}}</p>
                                     <p>3 Days</p>
                                 </div>
                                 <div>
-                                    <p>Sharpe Ratio</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Sharpe Ratio"|translate}}</p>
                                     <p>0.25</p>
                                 </div>
                             </div>
                             <div class="strategy-value d-flex justify-space-between align-center pb-10">
                                 <div>
-                                    <p>Max. Drawdown</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Max. Drawdown"|translate}}</p>
                                     <p>89.25</p>
                                 </div>
                                 <div>
-                                    <p>Max. Drawdown Time</p>
+                                    <p>{{"PROVIDERS_LIST_PROFILE.Max. Drawdown Time"|translate}}</p>
                                     <p>13/04/2024</p>
                                 </div>
                             </div>
@@ -276,7 +276,7 @@
             <div class="d-flex justify-space-between align-center">
                 <mat-form-field class="search-provider-field" appearance="outline">
                     <mat-icon color="secondary" matPrefix>search</mat-icon>
-                    <mat-label>Search</mat-label>
+                    <mat-label>{{"PROVIDERS_LIST_PROFILE.Search"|translate}}</mat-label>
                     <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                         @for (option of filteredOptions | async; track option) {
@@ -287,8 +287,8 @@
                 <div class="assets-badge">
                     <mat-button-toggle-group name="fontStyle" aria-label="Font Style"
                         [hideSingleSelectionIndicator]="true">
-                        <mat-button-toggle value="open" [checked]="true">Open</mat-button-toggle>
-                        <mat-button-toggle value="closed">Closed</mat-button-toggle>
+                        <mat-button-toggle value="open" [checked]="true">{{"PROVIDERS_LIST_PROFILE.Open"|translate}}</mat-button-toggle>
+                        <mat-button-toggle value="closed">{{"PROVIDERS_LIST_PROFILE.Closed"|translate}}</mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
             </div>

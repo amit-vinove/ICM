@@ -28,7 +28,7 @@ export class SidenavComponent {
 
   switchLanguage(lang: string) {
     this.translate.use(lang);
-    // localStorage.setItem('language', lang);
+    localStorage.setItem('language', lang);
     // this.setDirection(lang);
   }
 

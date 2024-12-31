@@ -279,5 +279,16 @@
        "Open Time":"Open Time",
        "Profit":"Profit",
        "Search":"Search"
+    },
+    "SIDEBAR":{
+        "Home":"Home",
+        "My Providers":"My Providers",
+        "My Accounts":"My Accounts",
+        "Transaction History":"Transaction History",
+        "Providers":"Providers",
+        "Reports":"Reports",
+        "Dark/Light Mode":"Dark/Light Mode",
+        "Language":"Language",
+        "Settings":"Settings"
     }
 }
